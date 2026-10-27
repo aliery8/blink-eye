@@ -40,7 +40,7 @@ jobs:
         run: bun install
 
       - name: Build installer (NSIS)
-        run: npx tauri build --bundles nsis
+        run: bunx tauri build --bundles nsis
 
       - name: Upload installer
         uses: actions/upload-artifact@v4
