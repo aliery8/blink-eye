@@ -322,22 +322,22 @@ const DebugPremiumPanel: React.FC = () => {
         <div className="flex flex-wrap gap-1.5">
           {[
             {
-              label: "Preview nudge window",
+              label: "预览提示窗",
               action: "debug_preview_nudge_window",
               payload: undefined,
             },
             {
-              label: "Fire break trigger",
+              label: "触发休息提醒",
               action: "maybe_show_premium_nudge",
               payload: { trigger: "break_completed" },
             },
             {
-              label: "Fire stats trigger",
+              label: "触发统计提醒",
               action: "maybe_show_premium_nudge",
               payload: { trigger: "stats_viewed" },
             },
             {
-              label: "Record snoozed",
+              label: "记录稍后提醒",
               action: "record_premium_nudge_event",
               payload: { event: "snoozed" },
             },

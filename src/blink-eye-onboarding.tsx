@@ -68,13 +68,13 @@ export default function UserOnboarding() {
   const screens: Screen[] = [
     {
       id: 1,
-      title: "Welcome",
+      title: "欢迎",
       component: WelcomeScreen,
       onNext: OnboardingService.saveWelcomeData,
     },
     {
       id: 2,
-      title: "Theme",
+      title: "主题",
       component: ThemePickerOnboarding,
       onNext: async () => {
         // Theme is already saved to DB by AccentColorContext.setAccentTheme

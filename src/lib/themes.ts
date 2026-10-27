@@ -13,7 +13,7 @@ export interface RegistryItem {
 export const THEMES: RegistryItem[] = [
 {
   name: "neutral",
-  title: "Neutral",
+  title: "中性",
   type: "registry:theme",
   cssVars: {
     light: {
@@ -87,7 +87,7 @@ export const THEMES: RegistryItem[] = [
 },
 {
   name: "stone",
-  title: "Stone",
+  title: "石灰",
   type: "registry:theme",
   cssVars: {
     light: {
@@ -161,7 +161,7 @@ export const THEMES: RegistryItem[] = [
 },
 {
   name: "zinc",
-  title: "Zinc",
+  title: "锌灰",
   type: "registry:theme",
   cssVars: {
     light: {
@@ -235,7 +235,7 @@ export const THEMES: RegistryItem[] = [
 },
 {
   name: "mauve",
-  title: "Mauve",
+  title: "藕紫",
   type: "registry:theme",
   cssVars: {
     light: {
@@ -309,7 +309,7 @@ export const THEMES: RegistryItem[] = [
 },
 {
   name: "olive",
-  title: "Olive",
+  title: "橄榄",
   type: "registry:theme",
   cssVars: {
     light: {
@@ -383,7 +383,7 @@ export const THEMES: RegistryItem[] = [
 },
 {
   name: "mist",
-  title: "Mist",
+  title: "薄雾",
   type: "registry:theme",
   cssVars: {
     light: {
@@ -457,7 +457,7 @@ export const THEMES: RegistryItem[] = [
 },
 {
   name: "taupe",
-  title: "Taupe",
+  title: "灰褐",
   type: "registry:theme",
   cssVars: {
     light: {
@@ -531,7 +531,7 @@ export const THEMES: RegistryItem[] = [
 },
 {
   name: "amber",
-  title: "Amber",
+  title: "琥珀",
   type: "registry:theme",
   cssVars: {
     light: {
@@ -564,7 +564,7 @@ export const THEMES: RegistryItem[] = [
 },
 {
   name: "blue",
-  title: "Blue",
+  title: "蓝色",
   type: "registry:theme",
   cssVars: {
     light: {
@@ -597,7 +597,7 @@ export const THEMES: RegistryItem[] = [
 },
 {
   name: "cyan",
-  title: "Cyan",
+  title: "青色",
   type: "registry:theme",
   cssVars: {
     light: {
@@ -630,7 +630,7 @@ export const THEMES: RegistryItem[] = [
 },
 {
   name: "emerald",
-  title: "Emerald",
+  title: "翡翠",
   type: "registry:theme",
   cssVars: {
     light: {
@@ -663,7 +663,7 @@ export const THEMES: RegistryItem[] = [
 },
 {
   name: "fuchsia",
-  title: "Fuchsia",
+  title: "紫红",
   type: "registry:theme",
   cssVars: {
     light: {
@@ -696,7 +696,7 @@ export const THEMES: RegistryItem[] = [
 },
 {
   name: "green",
-  title: "Green",
+  title: "绿色",
   type: "registry:theme",
   cssVars: {
     light: {
@@ -729,7 +729,7 @@ export const THEMES: RegistryItem[] = [
 },
 {
   name: "indigo",
-  title: "Indigo",
+  title: "靛蓝",
   type: "registry:theme",
   cssVars: {
     light: {
@@ -762,7 +762,7 @@ export const THEMES: RegistryItem[] = [
 },
 {
   name: "lime",
-  title: "Lime",
+  title: "青柠",
   type: "registry:theme",
   cssVars: {
     light: {
@@ -795,7 +795,7 @@ export const THEMES: RegistryItem[] = [
 },
 {
   name: "orange",
-  title: "Orange",
+  title: "橙色",
   type: "registry:theme",
   cssVars: {
     light: {
@@ -828,7 +828,7 @@ export const THEMES: RegistryItem[] = [
 },
 {
   name: "pink",
-  title: "Pink",
+  title: "粉色",
   type: "registry:theme",
   cssVars: {
     light: {
@@ -861,7 +861,7 @@ export const THEMES: RegistryItem[] = [
 },
 {
   name: "purple",
-  title: "Purple",
+  title: "紫色",
   type: "registry:theme",
   cssVars: {
     light: {
@@ -894,7 +894,7 @@ export const THEMES: RegistryItem[] = [
 },
 {
   name: "red",
-  title: "Red",
+  title: "红色",
   type: "registry:theme",
   cssVars: {
     light: {
@@ -927,7 +927,7 @@ export const THEMES: RegistryItem[] = [
 },
 {
   name: "rose",
-  title: "Rose",
+  title: "玫瑰",
   type: "registry:theme",
   cssVars: {
     light: {
@@ -961,7 +961,7 @@ export const THEMES: RegistryItem[] = [
 },
 {
   name: "sky",
-  title: "Sky",
+  title: "天蓝",
   type: "registry:theme",
   cssVars: {
     light: {
@@ -994,7 +994,7 @@ export const THEMES: RegistryItem[] = [
 },
 {
   name: "teal",
-  title: "Teal",
+  title: "青绿",
   type: "registry:theme",
   cssVars: {
     light: {
@@ -1027,7 +1027,7 @@ export const THEMES: RegistryItem[] = [
 },
 {
   name: "violet",
-  title: "Violet",
+  title: "紫罗兰",
   type: "registry:theme",
   cssVars: {
     light: {
@@ -1060,7 +1060,7 @@ export const THEMES: RegistryItem[] = [
 },
 {
   name: "yellow",
-  title: "Yellow",
+  title: "黄色",
   type: "registry:theme",
   cssVars: {
     light: {

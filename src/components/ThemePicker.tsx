@@ -4,19 +4,19 @@ import { oklchStringToHex } from "../lib/color-utils";
 
 const THEME_GROUPS = [
   {
-    label: "Neutral",
+    label: "中性",
     themes: ["neutral", "stone", "zinc", "olive", "mist", "taupe"],
   },
   {
-    label: "Warm",
+    label: "暖色",
     themes: ["yellow", "amber", "orange", "red", "rose", "pink"],
   },
   {
-    label: "Green",
+    label: "绿色",
     themes: ["lime", "green", "emerald", "teal", "cyan", "sky"],
   },
   {
-    label: "Cool",
+    label: "冷色",
     themes: ["fuchsia", "purple", "violet", "indigo", "blue", "mauve"],
   },
 ];

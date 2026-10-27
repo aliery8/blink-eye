@@ -43,20 +43,20 @@ const isMac = platform() === "macos";
 
 // ── 1. Grouped Navigation Data ──
 
-const mainNav = [{ title: "Dashboard", url: "/", icon: IoGrid }];
+const mainNav = [{ title: "概览", url: "/", icon: IoGrid }];
 
 const proNav = [
   { title: "Reminder Settings", url: "/reminderSettings", icon: IoTimer },
   { title: "使用时长", url: "/usageTime", icon: IoBarChart },
   { title: "Reminder Themes", url: "/reminderthemes", icon: IoColorPalette },
-  { title: "Multi-Monitor", url: "/multimonitor", icon: PiMonitorFill },
+  { title: "多显示器", url: "/multimonitor", icon: PiMonitorFill },
   { title: "Todo List", url: "/todoList", icon: LucideListTodo },
   { title: "工作日设置", url: "/workday", icon: IoCalendar },
   { title: "休息屏保", url: "/screenSavers", icon: IoDesktop },
 ];
 
 const systemNav = [
-  { title: "Settings", url: "/allSettings", icon: IoSettings },
+  { title: "设置", url: "/allSettings", icon: IoSettings },
   { title: "主题选择", url: "/themePicker", icon: IoColorWand },
   { title: "Activate License", url: "/activatelicense", icon: IoKey },
   {
@@ -65,7 +65,7 @@ const systemNav = [
     icon: IoChatbubble,
     external: true,
   },
-  { title: "About", url: "/about", icon: IoInformationCircle },
+  { title: "关于", url: "/about", icon: IoInformationCircle },
 ];
 
 // Dynamically collect all nav URLs for shade assignment

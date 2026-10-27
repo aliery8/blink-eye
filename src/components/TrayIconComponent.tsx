@@ -15,7 +15,7 @@ const TrayIconComponent: React.FC = () => {
           items: [
             {
               id: "dashboard",
-              text: "Dashboard",
+              text: "概览",
               action: () => {
                 console.log("Dashboard pressed");
                 const webview = new WebviewWindow("DashboardWindow", {
@@ -34,14 +34,14 @@ const TrayIconComponent: React.FC = () => {
             },
             {
               id: "relaunch",
-              text: "Relaunch",
+              text: "重启应用",
               action: () => {
                 relaunch();
               },
             },
             {
               id: "quit",
-              text: "Quit",
+              text: "退出",
               action: async () => {
                 await exit(0);
               },

@@ -31,10 +31,10 @@ export interface BackgroundEntry {
 }
 
 export const BACKGROUND_REGISTRY: BackgroundEntry[] = [
-  { style: "default",               entry: "reminder-default.html",             label: "Default" },
-  { style: "aurora",                entry: "reminder-aurora.html",              label: "Aurora" },
+  { style: "default",               entry: "reminder-default.html",             label: "默认" },
+  { style: "aurora",                entry: "reminder-aurora.html",              label: "极光" },
   { style: "freesprit",             entry: "reminder-freesprit.html",           label: "Free Spirit" },
-  { style: "beamoflife",            entry: "reminder-beamoflife.html",          label: "Beam of Life" },
+  { style: "beamoflife",            entry: "reminder-beamoflife.html",          label: "生命之光" },
   { style: "particleBackground",    entry: "reminder-particles.html",           label: "Particle Wave" },
   { style: "starryBackground",      entry: "reminder-starry.html",              label: "Starry Background" },
   { style: "shootingmeteor",        entry: "reminder-meteor.html",              label: "Shooting Meteor" },

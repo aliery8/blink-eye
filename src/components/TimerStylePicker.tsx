@@ -2,10 +2,10 @@ import { cn } from "../lib/utils";
 import type { TimerStyle } from "./reminder/timerStyle";
 
 const OPTIONS: { value: TimerStyle; label: string }[] = [
-  { value: "circle", label: "Circle" },
-  { value: "bar", label: "Bar" },
-  { value: "dial", label: "Dial" },
-  { value: "vertical", label: "Vertical" },
+  { value: "circle", label: "圆环" },
+  { value: "bar", label: "进度条" },
+  { value: "dial", label: "表盘" },
+  { value: "vertical", label: "竖条" },
 ];
 
 /** Ticks around a 64×40 screen, pointing at its center. */

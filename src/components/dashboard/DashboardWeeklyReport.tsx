@@ -50,7 +50,7 @@ export default function DashboardWeeklyReport({
           color: accentHex,
         },
         snoozed: {
-          label: "Snoozes",
+          label: "稍后提醒",
           color: "var(--chart-2)",
         },
       }) satisfies ChartConfig,

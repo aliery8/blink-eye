@@ -46,7 +46,7 @@ const features = [
   {
     icon: <RiComputerFill className="w-4 h-4 text-primary" />,
     title: "Screen Time",
-    text: "Track how long you've been at your screen.",
+    text: "记录你在屏幕前待了多久。",
   },
   {
     icon: <RiSparkling2Fill className="w-4 h-4 text-primary" />,

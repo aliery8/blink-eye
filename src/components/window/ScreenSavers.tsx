@@ -32,11 +32,11 @@ const thumbMap: Record<string, string> = {
 };
 
 const styles = [
-  { value: "aurora", label: "Aurora" },
+  { value: "aurora", label: "极光" },
   { value: "freesprit", label: "Free Sprit" },
   { value: "particleBackground", label: "Infinite Wave Background" },
   { value: "starryBackground", label: "Starry Background" },
-  { value: "beamoflife", label: "Beam of Life" },
+  { value: "beamoflife", label: "生命之光" },
   { value: "shootingmeteor", label: "Shooting Meteor" },
   { value: "plainGradientAnimation", label: "Plain Gradient Animation" },
   { value: "polygonAnimation", label: "Polygon Animation" },
