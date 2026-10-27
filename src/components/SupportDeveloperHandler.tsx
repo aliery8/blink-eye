@@ -32,7 +32,7 @@ const openSupportReminder = async () => {
     });
 
     webview.once("tauri://created", () => {
-      console.log("Support reminder window created.");
+      console.log("支持提醒窗口已创建。");
     });
 
     webview.once("tauri://error", (e) => {

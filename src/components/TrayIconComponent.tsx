@@ -20,7 +20,7 @@ const TrayIconComponent: React.FC = () => {
                 console.log("Dashboard pressed");
                 const webview = new WebviewWindow("DashboardWindow", {
                   url: "/home",
-                  title: "Take A Break Reminder - Blink Eye",
+                  title: "休息提醒 - Blink Eye",
                   width: 400,
                   height: 600,
                 });

@@ -49,7 +49,7 @@ const layoutRoutes = [
   { path: "soon", element: Soon },
 ];
 
-// Listens for the premium nudge window's "View premium" action (Rust emits
+// Listens for the premium nudge window's "查看高级版" action (Rust emits
 // `open-activate-license`) and routes the main window to license activation.
 function DeepLinkHandler() {
   const navigate = useNavigate();
@@ -87,7 +87,7 @@ function App() {
         setHasCompletedOnboarding(value === "true");
       } catch (err) {
         console.error("Error checking onboarding status:", err);
-        setError("Failed to load app configuration. Please try again.");
+        setError("加载应用配置失败，请重试。");
       } finally {
         setIsLoading(false);
       }

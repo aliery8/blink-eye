@@ -29,7 +29,7 @@ const CurrentTime = () => {
 
   return (
     <div className="text-xl ">
-      Current Time: <span className="">{time}</span>
+      当前时间： <span className="">{time}</span>
     </div>
   );
 };

@@ -11,7 +11,7 @@ const AutoStart = () => {
           console.log(`registered for autostart? ${await isEnabled()}`);
         }}
       >
-        Enable Autostart
+        开启开机自启
       </button>
       {/* Button for disable autostart */}
       <button
@@ -20,7 +20,7 @@ const AutoStart = () => {
           console.log(`registered for autostart? ${await isEnabled()}`);
         }}
       >
-        Disable Autostart
+        关闭开机自启
       </button>
     </div>
   );

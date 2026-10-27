@@ -23,10 +23,10 @@ export class OnboardingService {
     reminderText: string;
   }): Promise<void> {
     if (data.breakInterval <= 0) {
-      throw new Error("Interval must be greater than 0 minutes.");
+      throw new Error("间隔必须大于 0 分钟。");
     }
     if (data.breakDuration <= 0) {
-      throw new Error("Duration must be greater than 0 seconds.");
+      throw new Error("时长必须大于 0 秒。");
     }
     await invoke("update_reminder_setting", {
       key: "blinkEyeReminderInterval",

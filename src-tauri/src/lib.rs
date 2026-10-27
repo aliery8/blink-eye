@@ -62,9 +62,9 @@ fn build_tray_menu(
 ) -> Result<Menu<tauri::Wry>, tauri::Error> {
     let timer_i = MenuItem::with_id(app, "timer", timer_text, false, None::<&str>)?;
     let separator = MenuItem::with_id(app, "separator", "─────────────", false, None::<&str>)?;
-    let dashboard_i = MenuItem::with_id(app, "dashboard", "Dashboard", true, None::<&str>)?;
-    let relaunch_i = MenuItem::with_id(app, "relaunch", "Relaunch", true, None::<&str>)?;
-    let quit_i = MenuItem::with_id(app, "quit", "Quit", true, None::<&str>)?;
+    let dashboard_i = MenuItem::with_id(app, "dashboard", "打开面板", true, None::<&str>)?;
+    let relaunch_i = MenuItem::with_id(app, "relaunch", "重启应用", true, None::<&str>)?;
+    let quit_i = MenuItem::with_id(app, "quit", "退出", true, None::<&str>)?;
     Menu::with_items(app, &[&timer_i, &separator, &dashboard_i, &relaunch_i, &quit_i])
 }
 
@@ -171,14 +171,14 @@ pub fn run() {
                 .icon("icons/icon.png")
                 .large_icon("icons/icon.png")
                 .title("Blink Eye")
-                .body("Blink Eye has started running in the background and can be found on the system tray.")
+                .body("Blink Eye 已在后台运行，可在系统托盘中找到它。")
                 .show()
             {
                 eprintln!("[Setup] Failed to show startup notification: {e}");
             }
 
             // Create Tray Icon with menu
-            let initial_menu = build_tray_menu(app.handle(), "Next break in -- sec")?;
+            let initial_menu = build_tray_menu(app.handle(), "下次休息 -- 秒")?;
             let tray = TrayIconBuilder::with_id("main")
                 .icon(app.default_window_icon().unwrap().clone())
                 .on_tray_icon_event(|tray, event| match event {
@@ -244,16 +244,16 @@ pub fn run() {
                     last_is_on_break = update.is_on_break;
 
                     let timer_text = if update.is_on_break {
-                        "Break in progress...".to_string()
+                        "休息进行中…".to_string()
                     } else if update.remaining_secs == 0 {
-                        "Preparing break...".to_string()
+                        "正在准备休息…".to_string()
                     } else {
                         let mins = update.remaining_secs / 60;
                         let secs = update.remaining_secs % 60;
                         match (mins, secs) {
-                            (0, s) => format!("Next break in {s} sec"),
-                            (m, 0) => format!("Next break in {m} min"),
-                            (m, s) => format!("Next break in {m} min {s} sec"),
+                            (0, s) => format!("下次休息 {s} 秒"),
+                            (m, 0) => format!("下次休息 {m} 分钟"),
+                            (m, s) => format!("下次休息 {m} 分 {s} 秒"),
                         }
                     };
 

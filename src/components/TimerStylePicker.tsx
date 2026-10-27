@@ -77,7 +77,7 @@ export function TimerStylePicker({
   disabled?: boolean;
 }) {
   return (
-    <div role="radiogroup" aria-label="Timer style" className="flex flex-wrap justify-end gap-2">
+    <div role="radiogroup" aria-label="计时样式" className="flex flex-wrap justify-end gap-2">
       {OPTIONS.map((option) => {
         const selected = option.value === value;
         return (

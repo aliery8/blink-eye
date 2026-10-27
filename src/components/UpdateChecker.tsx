@@ -86,7 +86,7 @@ export function UpdateChecker() {
           onClick={() => checkForUpdates(false)}
           disabled={isChecking}
           className="font-heading font-medium hover:text-primary transition-colors disabled:opacity-50 flex items-center gap-1"
-          aria-label="Check for updates"
+          aria-label="检查更新"
         >
           <FaSyncAlt
             className={`text-[11px] ${isChecking ? "animate-spin" : ""}`}

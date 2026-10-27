@@ -34,6 +34,7 @@ import {
   IoDownloadOutline,
   IoCloudUploadOutline,
   IoDiamond,
+  IoEyeOutline,
 } from "react-icons/io5";
 
 const USAGE_LIMIT_OPTIONS = Array.from({ length: 24 }, (_, i) => i + 1);
@@ -95,6 +96,8 @@ const AllSettings = () => {
   const [timeLimit, setTimeLimit] = useState<number>(8);
   const [savedTimeLimit, setSavedTimeLimit] = useState<number>(8);
   const [isAutoStartEnabled, setIsAutoStartEnabled] = useState(false);
+  const [isFullscreenReminderEnabled, setIsFullscreenReminderEnabled] =
+    useState(true);
   const [isLoading, setIsLoading] = useState(true);
   const [isExporting, setIsExporting] = useState(false);
   const [isImporting, setIsImporting] = useState(false);
@@ -111,6 +114,14 @@ const AllSettings = () => {
           setTimeLimit(limit);
           setSavedTimeLimit(limit);
         }
+
+        const savedFullscreen = await invoke<string | null>(
+          "get_config_string",
+          { key: "fullscreenReminderEnabled" },
+        );
+        // Missing key means an upgraded install: default to the original
+        // fullscreen behaviour.
+        setIsFullscreenReminderEnabled(savedFullscreen !== "false");
 
         const runOnStartUp = await invoke<string | null>("get_config_string", {
           key: "isRunOnStartUpEnabledByDefault",
@@ -153,7 +164,7 @@ const AllSettings = () => {
         }
       } catch (error) {
         console.error("Failed to load settings:", error);
-        toast.error("Failed to load settings. Please try again later.", {
+        toast.error("加载设置失败，请稍后重试。", {
           duration: 2000,
           position: "bottom-right",
         });
@@ -188,9 +199,34 @@ const AllSettings = () => {
     }
   };
 
+  const handleFullscreenReminderChange = async (checked: boolean) => {
+    const previous = isFullscreenReminderEnabled;
+    setIsFullscreenReminderEnabled(checked);
+    try {
+      await invoke("update_reminder_setting", {
+        key: "fullscreenReminderEnabled",
+        value: checked ? "true" : "false",
+      });
+      // Pick the new value up without waiting for the scheduler's next
+      // periodic settings reload.
+      await invoke("refresh_reminder_scheduler_settings");
+      toast.success(
+        checked ? "已开启全屏提醒" : "已关闭全屏提醒，将只用系统通知提醒",
+        { duration: 2000, position: "bottom-right" },
+      );
+    } catch (error) {
+      console.error("Failed to update fullscreen reminder setting:", error);
+      setIsFullscreenReminderEnabled(previous);
+      toast.error("保存失败，请稍后重试。", {
+        duration: 2000,
+        position: "bottom-right",
+      });
+    }
+  };
+
   const handleSaveLimit = async () => {
     if (isNaN(timeLimit) || timeLimit < 1 || timeLimit > 24) {
-      toast.error("Invalid limit. Please enter a number between 1 and 24.", {
+      toast.error("上限无效，请输入 1 到 24 之间的数字。", {
         duration: 2000,
         position: "bottom-right",
       });
@@ -203,7 +239,7 @@ const AllSettings = () => {
         value: String(timeLimit),
       });
       setSavedTimeLimit(timeLimit);
-      toast.success("Screen usage limit saved successfully!", {
+      toast.success("屏幕使用上限已保存！", {
         duration: 2000,
         position: "bottom-right",
       });
@@ -211,7 +247,7 @@ const AllSettings = () => {
       fireTrigger("settings_saved");
     } catch (error) {
       console.error("Failed to save limit:", error);
-      toast.error("Failed to save limit. Please try again later.", {
+      toast.error("保存上限失败，请稍后重试。", {
         duration: 2000,
         position: "bottom-right",
       });
@@ -234,7 +270,7 @@ const AllSettings = () => {
         { destinationPath: destination },
       );
 
-      toast.success(`Exported ${result.file_count} data files.`, {
+      toast.success(`已导出 ${result.file_count} 个数据文件。`, {
         duration: 2500,
         position: "bottom-right",
       });
@@ -292,8 +328,8 @@ const AllSettings = () => {
               <IoRocket className="size-4" />
             </SettingIconBadge>
           }
-          label="Run on startup"
-          description="Start Blink Eye when your computer boots"
+          label="开机启动"
+          description="开机时启动 Blink Eye"
         >
           <Switch
             id="autostart"
@@ -306,11 +342,28 @@ const AllSettings = () => {
         <SettingRow
           icon={
             <SettingIconBadge color={accentHex}>
+              <IoEyeOutline className="size-4" />
+            </SettingIconBadge>
+          }
+          label="全屏休息提醒"
+          description="开启后，到点会弹出全屏休息界面；关闭则只用系统通知提醒"
+        >
+          <Switch
+            id="fullscreenReminder"
+            checked={isFullscreenReminderEnabled}
+            onCheckedChange={handleFullscreenReminderChange}
+            disabled={isLoading}
+          />
+        </SettingRow>
+
+        <SettingRow
+          icon={
+            <SettingIconBadge color={accentHex}>
               <IoBarChart className="size-4" />
             </SettingIconBadge>
           }
-          label="Daily screen usage limit"
-          description="Shown on the usage time graph"
+          label="每日屏幕使用上限"
+          description="显示在使用时长图表上"
           controlClassName="flex w-full justify-end sm:min-w-[180px] sm:max-w-[200px]"
         >
           <Select
@@ -343,11 +396,11 @@ const AllSettings = () => {
                 <IoDiamond className="size-4" />
               </SettingIconBadge>
             }
-            label="Premium trial"
+            label="高级版试用"
             description={trialLine}
           >
             <Button variant="outline" asChild className="gap-2">
-              <Link to="/activatelicense">View premium</Link>
+              <Link to="/activatelicense">查看高级版</Link>
             </Button>
           </SettingRow>
         </div>
@@ -360,7 +413,7 @@ const AllSettings = () => {
               <IoDownloadOutline className="size-4" />
             </SettingIconBadge>
           }
-          label="Export data"
+          label="导出数据"
           description="Save settings, screen time, and todos (license stays on this device)"
         >
           <Button
@@ -380,8 +433,8 @@ const AllSettings = () => {
               <IoCloudUploadOutline className="size-4" />
             </SettingIconBadge>
           }
-          label="Import data"
-          description="Replace settings, screen time, and todos. License stays on this device."
+          label="导入数据"
+          description="替换设置、屏幕使用时间和待办。许可证仍保留在本机。"
         >
           <AlertDialog>
             <AlertDialogTrigger asChild>
@@ -396,7 +449,7 @@ const AllSettings = () => {
             </AlertDialogTrigger>
             <AlertDialogContent>
               <AlertDialogHeader>
-                <AlertDialogTitle>Replace all app data?</AlertDialogTitle>
+                <AlertDialogTitle>替换全部应用数据？</AlertDialogTitle>
                 <AlertDialogDescription>
                   Importing will replace your settings, screen time, and todos
                   with the backup. Your license and install data on this device
@@ -406,9 +459,9 @@ const AllSettings = () => {
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>
-                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                <AlertDialogCancel>取消</AlertDialogCancel>
                 <AlertDialogAction onClick={handleImportData}>
-                  Import and relaunch
+                  导入并重启
                 </AlertDialogAction>
               </AlertDialogFooter>
             </AlertDialogContent>
@@ -425,7 +478,7 @@ const AllSettings = () => {
             style={{ backgroundColor: accentHex }}
           >
             <IoSave className="size-4" />
-            Save limit
+            保存上限
           </Button>
         </div>
       )}

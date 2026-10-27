@@ -9,10 +9,9 @@ const Soon = () => {
 
         {/* Text */}
         <h1 className="text-2xl font-semibold mb-2 flex items-center justify-center">
-          Fixing some last moment bugs <BugIcon className="mx-2" /> and making
-          improvements
+          正在修最后几个 bug <BugIcon className="mx-2" /> 并持续改进
         </h1>
-        <p className="text-lg">This feature will be available soon.</p>
+        <p className="text-lg">该功能即将上线。</p>
       </div>
     </div>
   );

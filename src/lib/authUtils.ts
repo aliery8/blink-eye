@@ -82,7 +82,7 @@ export async function refreshAccessToken(): Promise<string | null> {
     try {
         const tokens = await getTokens();
         if (!tokens || !tokens.refreshToken) {
-            console.warn("No refresh token found.");
+            console.warn("未找到刷新令牌。");
             return null;
         }
 

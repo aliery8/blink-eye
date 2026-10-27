@@ -199,7 +199,7 @@ const ReminderSettings = () => {
 
   const handleSave = async () => {
     if (interval <= 0 || duration <= 0) {
-      toast.error("Set interval and duration above 0.", {
+      toast.error("间隔和时长都必须大于 0。", {
         duration: 2000,
         position: "bottom-right",
       });
@@ -330,7 +330,7 @@ const ReminderSettings = () => {
     const entry = entryForStyle(requestedStyle);
     const webview = new WebviewWindow("reminder_monitor_0", {
       url: `/${entry}?config=${encodeURIComponent(JSON.stringify({ isPremium }))}`,
-      title: "Take A Break Reminder - Blink Eye",
+      title: "休息提醒 - Blink Eye",
       fullscreen: true,
       alwaysOnTop: true,
       skipTaskbar: true,
@@ -350,8 +350,8 @@ const ReminderSettings = () => {
               <IoTimer className="size-4" />
             </SettingIconBadge>
           }
-          label="Break frequency"
-          description="How often you get a break reminder"
+          label="休息频率"
+          description="多久收到一次休息提醒"
         >
           <Select
             value={String(interval)}
@@ -377,8 +377,8 @@ const ReminderSettings = () => {
               <IoHourglass className="size-4" />
             </SettingIconBadge>
           }
-          label="Break duration"
-          description="How long each break screen stays open"
+          label="休息时长"
+          description="休息界面停留的时长"
         >
           <Select
             value={String(duration)}
@@ -404,13 +404,13 @@ const ReminderSettings = () => {
               <IoChatbubble className="size-4" />
             </SettingIconBadge>
           }
-          label="Reminder message"
-          description="Text shown on your break screen"
+          label="提醒文案"
+          description="休息界面上显示的文案"
           controlClassName="flex w-full justify-end sm:min-w-[320px] sm:max-w-lg"
         >
           <Input
             type="text"
-            placeholder="Pause! Look into the distance, and walk if you can."
+            placeholder="停一下！望向远处，能走动就走动一下。"
             value={reminderText}
             onChange={(e) => setReminderText(e.target.value)}
             disabled={isLoading}
@@ -426,8 +426,8 @@ const ReminderSettings = () => {
               <IoStopwatch className="size-4" />
             </SettingIconBadge>
           }
-          label="Timer style"
-          description="How the countdown looks on your break screen"
+          label="计时样式"
+          description="休息界面上倒计时的样式"
           controlClassName="flex w-full shrink-0 justify-end sm:w-auto"
         >
           <TimerStylePicker
@@ -460,7 +460,7 @@ const ReminderSettings = () => {
             className="flex-1 sm:flex-none"
           >
             <IoEye className="mr-2 size-4" />
-            Preview break
+            预览休息
           </Button>
           <Tooltip>
             <TooltipTrigger asChild>
@@ -468,15 +468,14 @@ const ReminderSettings = () => {
                 type="button"
                 variant="ghost"
                 size="icon"
-                aria-label="About preview"
+                aria-label="关于预览"
                 className="shrink-0 text-muted-foreground"
               >
                 <IoInformationCircleOutline className="size-5" />
               </Button>
             </TooltipTrigger>
             <TooltipContent side="top">
-              Preview opens one window, even with Multi-Monitor selected. It does
-              not test scheduled breaks across all displays.
+              预览只会打开一个窗口，即使已选多显示器；它不会测试所有显示器上的定时休息。
             </TooltipContent>
           </Tooltip>
         </div>
@@ -484,10 +483,9 @@ const ReminderSettings = () => {
 
       <div className="space-y-2">
         <div className="px-1">
-          <h2 className="text-sm font-medium">Skip limits</h2>
+          <h2 className="text-sm font-medium">跳过次数限制</h2>
           <p className="text-xs text-muted-foreground">
-            Control how often you can skip a break and whether skipping is
-            allowed.
+            控制能否跳过休息，以及每天可跳过几次。
           </p>
         </div>
 
@@ -498,7 +496,7 @@ const ReminderSettings = () => {
                 <IoAlarm className="size-4" />
               </SettingIconBadge>
             }
-            label="Snoozes per session"
+            label="单次休息稍后提醒次数"
             description="Skip clicks allowed until you restart the app (0 = unlimited)"
           >
             <Select
@@ -525,7 +523,7 @@ const ReminderSettings = () => {
                 <IoAlarm className="size-4" />
               </SettingIconBadge>
             }
-            label="Snoozes per day"
+            label="每日稍后提醒次数"
             description="Skip clicks allowed per calendar day (0 = unlimited)"
           >
             <Select
@@ -552,8 +550,8 @@ const ReminderSettings = () => {
                 <IoLockClosed className="size-4" />
               </SettingIconBadge>
             }
-            label="Strict mode"
-            description="Removes the Skip this time button during breaks"
+            label="严格模式"
+            description="休息时移除「跳过这次」按钮"
           >
             <Switch
               id="usingStrictMode"

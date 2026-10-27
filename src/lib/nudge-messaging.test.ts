@@ -51,7 +51,7 @@ describe("tone of voice", () => {
       noRandom,
     );
     expect(message.headline).toContain("6");
-    expect(`${message.headline} ${message.body}`).toMatch(/you|your/i);
+    expect(`${message.headline} ${message.body}`).toMatch(/你/);
   });
 });
 

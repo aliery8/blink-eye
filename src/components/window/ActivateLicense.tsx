@@ -145,7 +145,7 @@ const ActivateLicense = () => {
         await refreshPremiumFeatures();
         console.log("License data stored successfully");
         refreshLicenseData();
-        toast.success("License activated successfully!", {
+        toast.success("许可证激活成功！", {
           duration: 2000,
           position: "bottom-right",
         });
@@ -156,12 +156,12 @@ const ActivateLicense = () => {
         }, 1000);
       } else {
         console.log(
-          "Store ID does not match required values. License data not stored.",
+          "商店 ID 不匹配要求，许可证数据未保存。",
         );
       }
     } catch (error) {
       console.error("Activation error:", error);
-      toast.error("Failed to activate license. Please try again.", {
+      toast.error("激活许可证失败，请重试。", {
         duration: 2000,
         position: "bottom-right",
       });
@@ -184,7 +184,7 @@ const ActivateLicense = () => {
         await navigator.clipboard.writeText(licenseKey);
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
-        toast.success("License key copied!", {
+        toast.success("许可证密钥已复制！", {
           duration: 2000,
           position: "bottom-right",
         });
@@ -213,18 +213,18 @@ const ActivateLicense = () => {
               <IoShieldCheckmark className="size-4" />
             </SettingIconBadge>
           }
-          label="License status"
-          description="Your current Blink Eye license"
+          label="许可证状态"
+          description="当前 Blink Eye 许可证"
         >
           <div role="status" className="flex flex-wrap items-center justify-end gap-2">
           {licenseLoading ? (
             <span className="inline-flex items-center gap-1 rounded-full border bg-muted px-2.5 py-1 text-xs font-semibold text-muted-foreground">
               <Loader2Icon className="size-3 animate-spin" />
-              CHECKING
+              校验中
             </span>
           ) : licenseError ? (
             <>
-              <span className="text-xs text-muted-foreground">Unable to check license status</span>
+              <span className="text-xs text-muted-foreground">无法检查许可证状态</span>
               <Button
                 type="button"
                 size="sm"
@@ -234,13 +234,13 @@ const ActivateLicense = () => {
                   void Promise.all([refreshLicenseData(), refreshPremiumFeatures()])
                 }
               >
-                Retry
+                重试
               </Button>
             </>
           ) : isLicenseActive ? (
             <span className="inline-flex items-center gap-1 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-2.5 py-1 text-xs font-semibold text-emerald-500">
               <IoShieldCheckmark className="size-3" />
-              ACTIVE
+              已激活
             </span>
           ) : isLicenseInactive ? (
             <span className="inline-flex items-center gap-1 rounded-full border border-red-500/20 bg-red-500/10 px-2.5 py-1 text-xs font-semibold text-red-500">
@@ -261,8 +261,8 @@ const ActivateLicense = () => {
               <IoKey className="size-4" />
             </SettingIconBadge>
           }
-          label="License key"
-          description="Click to copy your full key"
+          label="许可证密钥"
+          description="点击复制完整密钥"
           controlClassName="flex w-full justify-end sm:min-w-[280px] sm:max-w-md"
         >
           <TooltipProvider>
@@ -306,8 +306,8 @@ const ActivateLicense = () => {
                 <IoKey className="size-4" />
               </SettingIconBadge>
             }
-            label="Activate license"
-            description="Enter the key from your purchase email"
+            label="激活许可证"
+            description="输入购买邮件中的密钥"
             controlClassName="flex w-full justify-end sm:min-w-[280px] sm:max-w-md"
           >
             <Input
@@ -327,8 +327,8 @@ const ActivateLicense = () => {
                 <IoPerson className="size-4" />
               </SettingIconBadge>
             }
-            label="Your name"
-            description="Optional label for this device"
+            label="你的名字"
+            description="设备备注（可选）"
             controlClassName="flex w-full justify-end sm:min-w-[280px] sm:max-w-md"
           >
             <Input
@@ -336,7 +336,7 @@ const ActivateLicense = () => {
               id="userName"
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
-              placeholder="John Doe"
+              placeholder="张三"
               disabled={loading.activation}
               className="bg-background/50 text-base"
             />
@@ -353,12 +353,12 @@ const ActivateLicense = () => {
             {loading.activation ? (
               <>
                 <Loader2Icon className="size-4 animate-spin" />
-                Activating...
+                激活中…
               </>
             ) : (
               <>
                 <IoKey className="size-4" />
-                Activate license
+                激活许可证
               </>
             )}
           </Button>
@@ -372,8 +372,8 @@ const ActivateLicense = () => {
               <IoBagHandle className="size-4" />
             </SettingIconBadge>
           }
-          label="My orders"
-          description="View purchases and retrieve lost license keys"
+          label="我的订单"
+          description="查看购买记录、找回丢失的密钥"
         >
           <Button asChild variant="secondary" size="sm" className="w-full sm:w-auto">
             <a
@@ -381,7 +381,7 @@ const ActivateLicense = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Open
+              打开
               <IoOpenOutline className="ml-2 size-4" />
             </a>
           </Button>
@@ -393,8 +393,8 @@ const ActivateLicense = () => {
               <IoCard className="size-4" />
             </SettingIconBadge>
           }
-          label="Billing portal"
-          description="Manage subscriptions, invoices, and payments"
+          label="账单中心"
+          description="管理订阅、发票与付款"
         >
           <Button asChild variant="secondary" size="sm" className="w-full sm:w-auto">
             <a
@@ -402,7 +402,7 @@ const ActivateLicense = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Open
+              打开
               <IoOpenOutline className="ml-2 size-4" />
             </a>
           </Button>

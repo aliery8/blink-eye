@@ -208,10 +208,8 @@ async fn maybe_notify_streak_milestone(
     let _ = app_handle
         .notification()
         .builder()
-        .title("Break streak milestone")
-        .body(format!(
-            "Nice work — {streak} breaks in a row without snoozing."
-        ))
+        .title("连续休息里程碑")
+        .body(format!("干得漂亮——连续 {streak} 次休息都没点稍后提醒。"))
         .show();
 
     Ok(())

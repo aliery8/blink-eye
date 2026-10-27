@@ -215,18 +215,18 @@ const DebugPremiumPanel: React.FC = () => {
     }
   };
 
-  if (loading) return <div className="p-4 text-sm">Loading debug info...</div>;
+  if (loading) return <div className="p-4 text-sm">正在加载调试信息…</div>;
   if (!info) return null;
 
   return (
     <div className="fixed bottom-4 right-4 w-96 max-h-[80vh] overflow-y-auto bg-black/90 text-white text-sm rounded-xl border border-white/20 p-4 z-50 font-sans">
       <h3 className="font-heading text-lg mb-3 font-semibold">
-        Debug: All from Rust
+        调试：全部来自 Rust
       </h3>
 
       {info.clockManipulated && (
         <div className="bg-red-500/20 text-red-400 rounded-lg p-2 mb-3 text-xs">
-          CLOCK MANIPULATION DETECTED
+          检测到系统时间被修改
         </div>
       )}
       {info.trialError && (
@@ -244,14 +244,14 @@ const DebugPremiumPanel: React.FC = () => {
         <h4 className="text-xs uppercase text-gray-500 mb-1">
           Trial (Rust get_trial_info)
         </h4>
-        <DebugRow label="Install date" value={info.installDate} />
+        <DebugRow label="安装日期" value={info.installDate} />
         <DebugRow
-          label="Days remaining"
+          label="剩余天数"
           value={info.trialDaysLeft}
           warn={info.trialActive === true}
         />
-        <DebugRow label="Trial active" value={info.trialActive} />
-        <DebugRow label="Clock manipulated" value={info.clockManipulated} />
+        <DebugRow label="试用中" value={info.trialActive} />
+        <DebugRow label="系统时间被修改" value={info.clockManipulated} />
       </div>
 
       <div className="mb-3">
@@ -259,19 +259,19 @@ const DebugPremiumPanel: React.FC = () => {
           License (Rust get_license_info)
         </h4>
         <DebugRow
-          label="Status"
+          label="状态"
           value={info.licenseStatus}
           warn={info.isPaid === true}
         />
-        <DebugRow label="License key" value={info.licenseKey} />
-        <DebugRow label="Is paid" value={info.isPaid} />
+        <DebugRow label="许可证密钥" value={info.licenseKey} />
+        <DebugRow label="已付费" value={info.isPaid} />
       </div>
 
       <div className="mb-3">
         <h4 className="text-xs uppercase text-gray-500 mb-1">
           Premium (derived)
         </h4>
-        <DebugRow label="Is premium" value={info.isPremium} warn={info.isPremium === true} />
+        <DebugRow label="是否高级版" value={info.isPremium} warn={info.isPremium === true} />
       </div>
 
       <div className="mb-3">
@@ -280,17 +280,17 @@ const DebugPremiumPanel: React.FC = () => {
         </h4>
         <DebugRow label="Interval (mins)" value={info.intervalMins} />
         <DebugRow label="Duration (secs)" value={info.durationSecs} />
-        <DebugRow label="Background style" value={info.backgroundStyle} />
-        <DebugRow label="Reminder text" value={info.reminderText} />
+        <DebugRow label="背景样式" value={info.backgroundStyle} />
+        <DebugRow label="提醒文案" value={info.reminderText} />
       </div>
 
       <div className="mb-3">
         <h4 className="text-xs uppercase text-gray-500 mb-1">
           Config (Rust get_config_bool)
         </h4>
-        <DebugRow label="Multi-monitor" value={info.isMultiMonitor} />
-        <DebugRow label="Strict mode" value={info.isStrictMode} />
-        <DebugRow label="Workday enabled" value={info.isWorkdayEnabled} />
+        <DebugRow label="多显示器" value={info.isMultiMonitor} />
+        <DebugRow label="严格模式" value={info.isStrictMode} />
+        <DebugRow label="已启用工作日" value={info.isWorkdayEnabled} />
       </div>
 
       <div className="mb-3">
@@ -302,18 +302,18 @@ const DebugPremiumPanel: React.FC = () => {
             Nudge: {info.nudgeError}
           </div>
         )}
-        <DebugRow label="Eligible" value={info.nudgeEligible} />
-        <DebugRow label="Reason" value={info.nudgeReason} />
-        <DebugRow label="Variant" value={info.nudgeVariant} />
-        <DebugRow label="Last shown" value={info.nudgeLastShown} />
-        <DebugRow label="Shows 30d" value={info.nudgeCount30d} />
-        <DebugRow label="Shows lifetime" value={info.nudgeCountLifetime} />
-        <DebugRow label="Snoozed until" value={info.nudgeSnoozedUntil} />
+        <DebugRow label="符合条件" value={info.nudgeEligible} />
+        <DebugRow label="原因" value={info.nudgeReason} />
+        <DebugRow label="变体" value={info.nudgeVariant} />
+        <DebugRow label="最近展示" value={info.nudgeLastShown} />
+        <DebugRow label="显示近 30 天" value={info.nudgeCount30d} />
+        <DebugRow label="显示累计" value={info.nudgeCountLifetime} />
+        <DebugRow label="稍后提醒至" value={info.nudgeSnoozedUntil} />
       </div>
 
       <div className="mb-1">
         <h4 className="text-xs uppercase text-gray-500 mb-1">
-          Nudge simulator
+          提示模拟器
         </h4>
         <p className="text-[11px] text-gray-500 mb-2">
           Preview opens instantly (dev only, bypasses eligibility and caps).
@@ -354,7 +354,7 @@ const DebugPremiumPanel: React.FC = () => {
             onClick={refresh}
             className="rounded-md border border-white/20 px-2 py-1 text-xs hover:bg-white/10"
           >
-            Refresh
+            刷新
           </button>
         </div>
       </div>

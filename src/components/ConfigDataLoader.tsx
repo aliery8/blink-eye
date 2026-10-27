@@ -26,7 +26,7 @@ const ConfigDataLoader: React.FC = () => {
 
       if (!dbExists) {
         const db = await Database.load("sqlite:appconfig.db");
-        console.log("Database does not exist. Initializing...");
+        console.log("数据库不存在，正在初始化…");
 
         // Create the tables
         await db.execute(`
@@ -65,9 +65,9 @@ const ConfigDataLoader: React.FC = () => {
         //   "showPauseButton",
         //   "false",
         // ]);
-        console.log("Database initialized with default configuration.");
+        console.log("已使用默认配置初始化数据库。");
       } else {
-        console.log("Database already exists. No action needed.");
+        console.log("数据库已存在，无需处理。");
       }
 
       //! Creating Initial Local Tasks Data

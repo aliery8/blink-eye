@@ -33,7 +33,7 @@ const LicenseValidationComponent: React.FC = () => {
     licenseKey: string
   ) => {
     if (!licenseKey) {
-      toast.error("Missing license key for validation.");
+      toast.error("缺少用于校验的许可证密钥。");
       return;
     }
 
@@ -84,7 +84,7 @@ const LicenseValidationComponent: React.FC = () => {
         return;
       } else {
         console.log(
-          "Store ID does not match required values. Validation skipped."
+          "商店 ID 不匹配要求，已跳过校验。"
         );
         return;
       }

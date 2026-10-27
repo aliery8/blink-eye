@@ -48,7 +48,7 @@ const openScreenSaverWindow = () => {
     url: "/screenSaverWindow",
     fullscreen: true,
     alwaysOnTop: true,
-    title: "Take A Break Reminder - Blink Eye",
+    title: "休息提醒 - Blink Eye",
     skipTaskbar: false,
   });
   webview.once("tauri://created", () => {
@@ -80,7 +80,7 @@ const ScreenSavers: React.FC = () => {
   const handleOpenScreenSaver = () => {
     if (!canAccessPremiumFeatures) {
       toast.error(
-        "Unlock this feature with a license key and help the developer grow.",
+        "用许可证密钥解锁该功能，也帮开发者把项目做下去。",
         {
           duration: 2000,
           position: "bottom-right",
@@ -95,7 +95,7 @@ const ScreenSavers: React.FC = () => {
   const handleSaveScreenSaver = async (style: string) => {
     if (!canAccessPremiumFeatures) {
       toast.error(
-        "Unlock this feature with a license key and help the developer grow.",
+        "用许可证密钥解锁该功能，也帮开发者把项目做下去。",
         {
           duration: 2000,
           position: "bottom-right",
@@ -116,9 +116,9 @@ const ScreenSavers: React.FC = () => {
   return (
     <div className="space-y-8 px-4 py-2">
       <div className="flex flex-col gap-1">
-        <h3 className="text-2xl font-heading tracking-tight">Screen Savers</h3>
+        <h3 className="text-2xl font-heading tracking-tight">休息屏保</h3>
         <p className="text-sm text-muted-foreground">
-          Choose a visual style for your screen saver breaks.
+          为休息屏保选择视觉风格。
         </p>
       </div>
 
@@ -159,7 +159,7 @@ const ScreenSavers: React.FC = () => {
                 {style.value !== "default" && (
                   <div className="absolute right-2 top-2 flex items-center gap-1 rounded-full border border-amber-500/30 bg-background/80 px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-amber-600 shadow-sm backdrop-blur-md dark:text-amber-400">
                     <Flame className="h-3 w-3" />
-                    Premium
+                    高级版
                   </div>
                 )}
 
@@ -184,7 +184,7 @@ const ScreenSavers: React.FC = () => {
       <div className="flex flex-col-reverse items-center justify-between gap-4 border-t pt-6 sm:flex-row">
         <HowToCloseScreenSaver />
         <Button onClick={() => handleOpenScreenSaver()} size="lg" className="w-full sm:w-auto">
-          Open Screen Saver
+          打开屏保
         </Button>
       </div>
     </div>

@@ -58,7 +58,7 @@ export default function UserOnboarding() {
   const [breakInterval, setBreakInterval] = useState(20);
   const [breakDuration, setBreakDuration] = useState(20);
   const [reminderText, setReminderText] = useState(
-    "Pause! Look into the distance, and best if you walk a bit.",
+    "停一下！望向远处，最好走动走动。",
   );
   const [timerStyle, setTimerStyle] = useState<TimerStyle>("dial");
   const [email, setEmail] = useState("");
@@ -100,7 +100,7 @@ export default function UserOnboarding() {
     },
     {
       id: 5,
-      title: "Done",
+      title: "完成",
       component: DoneScreen,
       onNext: async () => {
         await OnboardingService.completeOnboarding({
@@ -123,7 +123,7 @@ export default function UserOnboarding() {
     const trimmed = email.trim();
 
     if (!trimmed) {
-      setEmailError("Please enter your email to continue.");
+      setEmailError("请输入邮箱后继续。");
       return false;
     }
 
@@ -155,7 +155,7 @@ export default function UserOnboarding() {
       toast.error(
         error instanceof Error && error.message
           ? error.message
-          : "Oops! Something went wrong. Try again?",
+          : "哎呀，出了点问题，再试一次？",
       );
     } finally {
       setIsLoading(false);
@@ -284,7 +284,7 @@ export default function UserOnboarding() {
             className="flex items-center space-x-2 bg-transparent"
           >
             <ChevronLeft className="w-4 h-4" />
-            <span>Previous</span>
+            <span>上一步</span>
           </Button>
 
           {/* Screen Indicators */}

@@ -119,15 +119,15 @@ const TrialRemaining: React.FC = () => {
         </p>
         <p className="text-xs text-muted-foreground">
           {trialInfo?.clock_manipulated
-            ? "Check your system date, then retry. This is not a confirmed trial expiry."
-            : "We could not confirm your trial status. Free single-monitor breaks remain available."}
+            ? "请检查系统日期后重试；这还不能确认试用已结束。"
+            : "无法确认试用状态；免费的单显示器休息仍然可用。"}
         </p>
         <div className="flex flex-wrap gap-2">
           <Button size="sm" variant="secondary" disabled={isRefreshing} onClick={() => void refreshPremiumFeatures()}>
-            {isRefreshing ? "Checking..." : "Retry"}
+            {isRefreshing ? "检查中…" : "Retry"}
           </Button>
           <Button size="sm" variant="outline" asChild>
-            <Link to="/activatelicense">Check or activate license</Link>
+            <Link to="/activatelicense">检查或激活许可证</Link>
           </Button>
         </div>
       </div>
@@ -196,8 +196,8 @@ const TrialRemaining: React.FC = () => {
               </p>
               <p className="text-xs text-foreground/50 mt-0.5 leading-relaxed">
                 {isExpired
-                  ? "Purchase a license to keep using all features and support the developer."
-                  : "Unlock all features forever with a one-time license purchase."}
+                  ? "购买许可证以继续使用全部功能，并支持开发者。"
+                  : "一次购买，永久解锁全部功能。"}
               </p>
               {licenseError && (
                 <p className="text-xs text-muted-foreground mt-1">
@@ -217,7 +217,7 @@ const TrialRemaining: React.FC = () => {
           >
             <Link to="https://blinkeye.app/en/pricing" target="_blank">
               <RiExternalLinkFill className="w-3 h-3 mr-1.5" />
-              Get License
+              获取许可证
             </Link>
           </Button>
         </div>
@@ -225,12 +225,12 @@ const TrialRemaining: React.FC = () => {
         {(licenseError || isExpired) && <div className="relative flex flex-wrap gap-2">
           {licenseError && (
             <Button size="sm" variant="secondary" disabled={isRefreshing} onClick={() => void refreshPremiumFeatures()}>
-              {isRefreshing ? "Checking..." : "Retry status"}
+              {isRefreshing ? "检查中…" : "Retry status"}
             </Button>
           )}
           {isExpired && (
             <Button size="sm" variant="outline" asChild>
-              <Link to="/activatelicense">Check or activate license</Link>
+              <Link to="/activatelicense">检查或激活许可证</Link>
             </Button>
           )}
         </div>}
@@ -250,7 +250,7 @@ const TrialRemaining: React.FC = () => {
               />
             </div>
             <p className="text-[10px] text-foreground/35 text-right">
-              of 7-day trial
+              7 天试用中
             </p>
           </div>
         )}

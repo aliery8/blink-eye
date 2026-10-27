@@ -21,7 +21,7 @@ export function UpdateDialog() {
       <div className="w-80">
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Update Available</AlertDialogTitle>
+            <AlertDialogTitle>有可用更新</AlertDialogTitle>
             <AlertDialogDescription>
               Blink Eye v{latestVersion} is available. Would you like to update
               now?
@@ -29,10 +29,10 @@ export function UpdateDialog() {
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel onClick={() => void dismissUpdate()}>
-              Not now
+              暂不
             </AlertDialogCancel>
             <AlertDialogAction onClick={() => void downloadAndInstall()}>
-              Update
+              更新
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

@@ -51,7 +51,7 @@ function WinCaptionButtons() {
 
       <button
         onClick={() => appWindow.minimize()}
-        aria-label="Minimize"
+        aria-label="最小化"
         className={cn(BTN, "hover:bg-foreground/8 active:bg-foreground/12")}
       >
         <Minus size={14} strokeWidth={1.5} />
@@ -71,7 +71,7 @@ function WinCaptionButtons() {
 
       <button
         onClick={() => appWindow.close()}
-        aria-label="Close"
+        aria-label="关闭"
         className={cn(
           BTN,
           "hover:bg-[#c42b1c] hover:text-white",

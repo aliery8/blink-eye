@@ -41,7 +41,7 @@ const features = [
   {
     icon: <RiCheckboxCircleFill className="w-4 h-4 text-primary" />,
     title: "Todo List",
-    text: "Plan your day right from the break overlay.",
+    text: "可以直接在休息界面上安排今天的事。",
   },
   {
     icon: <RiComputerFill className="w-4 h-4 text-primary" />,
@@ -50,8 +50,8 @@ const features = [
   },
   {
     icon: <RiSparkling2Fill className="w-4 h-4 text-primary" />,
-    title: "Premium",
-    text: "Custom backgrounds, workday hours, and more.",
+    title: "高级版",
+    text: "自定义背景、工作时长等更多功能。",
   },
 ];
 
@@ -121,11 +121,10 @@ export default function DoneScreen({
         {/* Header */}
         <div className="text-center space-y-1">
           <h2 className="text-2xl font-bold font-heading">
-            You're all set!
+            设置完成！
           </h2>
           <p className="text-xs text-muted-foreground leading-relaxed">
-            Here's what Blink Eye will do for you — everything can be changed
-            later in Settings.
+            Blink Eye 会为你做这些事——之后都可以在设置里改。
           </p>
         </div>
 
@@ -178,10 +177,10 @@ export default function DoneScreen({
                 htmlFor="onboarding-autostart"
                 className="text-sm font-bold font-heading leading-none"
               >
-                Launch on startup
+                开机启动
               </Label>
               <p className="text-xs text-muted-foreground">
-                Start Blink Eye automatically when you log in.
+                登录系统时自动启动 Blink Eye。
               </p>
             </div>
           </div>
@@ -203,8 +202,7 @@ export default function DoneScreen({
               <div className="flex items-center space-x-2">
                 <RiHeartFill className="w-4 h-4 text-primary" />
                 <p className="text-xs text-foreground/70">
-                  Blink Eye is built by an indie developer. A license unlocks
-                  premium features forever.
+                  Blink Eye 由独立开发者维护，一份许可证可永久解锁高级功能。
                 </p>
               </div>
               <a
@@ -214,13 +212,13 @@ export default function DoneScreen({
               >
                 <Button variant="outline" size="sm" className="shrink-0">
                   <RiExternalLinkFill className="w-3.5 h-3.5 mr-1.5" />
-                  Get License
+                  获取许可证
                 </Button>
               </a>
             </div>
           )}
           <p className="text-[11px] text-center text-foreground/40">
-            Already have a license key? Activate it inside the app after setup.
+            已有许可证密钥？完成设置后可在应用内激活。
           </p>
         </div>
       </div>
@@ -272,7 +270,7 @@ function DiscountBanner({ discount }: { discount: DiscountData }) {
           <div className="flex items-center space-x-1.5">
             <RiSparkling2Fill className="w-4 h-4 text-primary" />
             <span className="text-xs font-bold text-primary font-heading uppercase tracking-wide">
-              Limited Offer
+              限时优惠
             </span>
           </div>
           <div className="bg-primary text-primary-foreground text-xs font-black px-2 py-0.5 rounded-full font-heading">
@@ -300,7 +298,7 @@ function DiscountBanner({ discount }: { discount: DiscountData }) {
 
           <div className="flex items-center space-x-1 text-foreground/60">
             <RiTimeFill className="w-3 h-3 text-primary shrink-0" />
-            <span className="text-[10px]">Ends in </span>
+            <span className="text-[10px]">结束于 </span>
             <span className="text-[10px] text-primary">
               <CountdownTimer endDate={discount.endDate} />
             </span>
@@ -313,7 +311,7 @@ function DiscountBanner({ discount }: { discount: DiscountData }) {
           >
             <Button size="sm" className="shrink-0">
               <RiExternalLinkFill className="w-3.5 h-3.5 mr-1.5" />
-              Get License
+              获取许可证
             </Button>
           </a>
         </div>

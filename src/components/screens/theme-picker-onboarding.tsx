@@ -28,10 +28,10 @@ export default function ThemePickerOnboarding() {
     <div className="flex flex-col items-center justify-center min-h-[60vh] space-y-8 w-full">
       <div className="text-center space-y-2">
         <h2 className="text-2xl font-heading font-bold tracking-tight">
-          Pick Your Style
+          选择你的风格
         </h2>
         <p className="text-sm text-muted-foreground max-w-md">
-          Choose an accent color that will be applied across the entire app.
+          选择会应用到整个应用的强调色。
         </p>
       </div>
 

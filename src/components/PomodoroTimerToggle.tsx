@@ -59,10 +59,10 @@ const PomodoroTimerToggle = () => {
           htmlFor="pomodoroSwitch"
           className="font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
         >
-          Use this as Pomodoro timer
+          用作番茄钟
         </Label>
         <p className="text-sm text-muted-foreground">
-          This sets the break time to 5 minutes and the work time to 25 minutes.
+          开启后休息 5 分钟、工作 25 分钟。
         </p>
       </div>
       <Switch

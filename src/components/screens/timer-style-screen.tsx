@@ -206,17 +206,16 @@ export default function TimerStyleScreen({
     <div className="flex min-h-[60vh] w-full flex-col items-center justify-center space-y-6">
       <div className="space-y-2 text-center">
         <h2 className="font-heading text-2xl font-bold tracking-tight">
-          Choose Your Break Clock
+          选择休息计时样式
         </h2>
         <p className="max-w-md text-sm text-muted-foreground">
-          This is the countdown you'll see on every break. You can change it
-          anytime in Reminder settings.
+          这是每次休息时看到的倒计时，随时可在提醒设置里更改。
         </p>
       </div>
 
       <div
         role="radiogroup"
-        aria-label="Timer style"
+        aria-label="计时样式"
         className="grid w-full max-w-5xl grid-cols-2 gap-3 md:grid-cols-4"
       >
         {OPTIONS.map((option) => {

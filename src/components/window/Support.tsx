@@ -39,7 +39,7 @@ const remindScheduleData: RemindSchedule = {
     {
       // Assuming today is a weekday, this pushes it to next week
       day: 5,
-      remindMsg: "How about we tackle this next week?",
+      remindMsg: "下周再来处理这件事怎么样？",
     },
     {
       day: 6,
@@ -91,7 +91,7 @@ const Support = () => {
   return (
     <div className="animate-in slide-in-from-top  relative w-[600px] h-[260px] rounded-sm bg-black border-4 border-white flex flex-col items-center justify-center p-6 overflow-hidden">
       <div className="flex items-center justify-center gap-1">
-        <img src={logo} className="h-4 w-4" alt="Blink Eye Logo" />
+        <img src={logo} className="h-4 w-4" alt="Blink Eye 标志" />
         <span className="text-white font-heading">Blink Eye</span>
       </div>
       {/* Cat GIF */}
@@ -103,7 +103,7 @@ const Support = () => {
       </div>
       <img
         src={cat_gif_paw}
-        alt="Cute cat waving"
+        alt="挥手的小猫"
         width="300px"
         className="absolute top-8 right-8 translate-x-1/4 -translate-y-1/4" // Position and slightly offset to match the image
       />
@@ -111,19 +111,19 @@ const Support = () => {
       {/* Content */}
       <div className="relative z-10 text-center space-y-4">
         <h1 className="text-white text-2xl font-heading leading-tight opacity-80">
-          Get A License Please
+          请先获取许可证
           <br />
-          to Support the Developer
+          支持开发者
         </h1>
         <div className="flex items-baseline justify-center gap-2">
           <span className="text-white text-sm font-heading opacity-80">
-            Starts
+            开始于
           </span>
           <span className="text-[#00E676] text-5xl font-heading">$9.99</span>
         </div>
         <Button className="bg-[#00E676] hover:bg-[#00C853] text-black font-heading py-3 px-8 rounded-xl text-lg shadow-lg transition-colors duration-200">
           <a href="https://blinkeye.app/en/pricing" target="_blank">
-            Support the Developer
+            支持开发者
           </a>
         </Button>
         <p

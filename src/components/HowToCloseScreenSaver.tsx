@@ -9,7 +9,7 @@ const HowToCloseScreenSaver = () => {
         <span>+</span>
         <Space className="w-5 h-5 text-gray-600 dark:text-gray-300" />
       </span>
-      to close the Screen Saver.
+      关闭屏保。
     </h3>
   );
 };

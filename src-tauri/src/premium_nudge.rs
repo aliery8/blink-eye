@@ -425,7 +425,7 @@ fn spawn_nudge_window(app_handle: &AppHandle, variant: &str) -> Result<(), Strin
         "premium_nudge",
         WebviewUrl::App(format!("premium-nudge.html?variant={variant}").into()),
     )
-    .title("Blink Eye Premium")
+    .title("Blink Eye 高级版")
     .inner_size(NUDGE_WIDTH, NUDGE_HEIGHT)
     .position(x, y)
     .decorations(true)

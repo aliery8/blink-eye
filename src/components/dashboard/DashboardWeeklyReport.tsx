@@ -46,7 +46,7 @@ export default function DashboardWeeklyReport({
     () =>
       ({
         completed: {
-          label: "Full breaks",
+          label: "完整休息",
           color: accentHex,
         },
         snoozed: {
@@ -104,7 +104,7 @@ export default function DashboardWeeklyReport({
       ];
       await writeTextFile(path, lines.join("\n"));
 
-      toast.success("Weekly report exported.", {
+      toast.success("周报已导出。", {
         duration: 2000,
         position: "bottom-right",
       });
@@ -131,7 +131,7 @@ export default function DashboardWeeklyReport({
             <DashboardIconBadge color={accentHex}>
               <IoStatsChart className="size-4" />
             </DashboardIconBadge>
-            Weekly break report
+            每周休息报告
           </div>
           {report ? (
             <p className="text-xs text-muted-foreground">
@@ -148,7 +148,7 @@ export default function DashboardWeeklyReport({
           disabled={!report}
         >
           <IoDownloadOutline className="size-4" />
-          Export
+          导出
         </Button>
       </div>
 
@@ -198,7 +198,7 @@ export default function DashboardWeeklyReport({
       ) : (
         <div className="flex flex-1 items-center justify-center rounded-xl border border-dashed border-border/80 bg-muted/20 px-4 py-6 text-center text-sm text-muted-foreground">
           {report && !hasActivity
-            ? "No breaks recorded in the last 7 days."
+            ? "最近 7 天没有休息记录。"
             : "Loading weekly report…"}
         </div>
       )}

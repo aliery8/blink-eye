@@ -101,19 +101,19 @@ export const TimePicker: React.FC<TimePickerProps> = ({
                 variant={selectedPeriod === "AM" ? "default" : "ghost"}
                 onClick={() => setSelectedPeriod("AM")}
               >
-                AM
+                上午
               </Button>
               <Button
                 variant={selectedPeriod === "PM" ? "default" : "ghost"}
                 onClick={() => setSelectedPeriod("PM")}
               >
-                PM
+                下午
               </Button>
             </div>
           </div>
           <div className="pt-2 px-2">
             <Button className="w-full" onClick={handleDone}>
-              Done
+              完成
             </Button>
           </div>
         </div>

@@ -62,7 +62,7 @@ export default function ReminderStyles() {
         }
       } catch (err) {
         console.error("Error fetching background style:", err);
-        setError("Failed to load saved theme. Please try again.");
+        setError("加载已保存主题失败，请重试。");
       } finally {
         setIsLoading(false);
       }
@@ -83,7 +83,7 @@ export default function ReminderStyles() {
       console.log("Background style saved:", selectedStyle);
     } catch (err) {
       console.error("Error saving theme:", err);
-      setError("Failed to save theme. Please try again.");
+      setError("保存主题失败，请重试。");
     } finally {
       setIsLoading(false);
     }
@@ -95,7 +95,7 @@ export default function ReminderStyles() {
     const entry = entryForStyle(requestedStyle);
     const webview = new WebviewWindow("reminder_monitor_0", {
       url: `/${entry}?config=${encodeURIComponent(JSON.stringify({ isPremium }))}`,
-      title: "Take A Break Reminder - Blink Eye",
+      title: "休息提醒 - Blink Eye",
       fullscreen: true,
       alwaysOnTop: true,
       skipTaskbar: true,
@@ -114,7 +114,7 @@ export default function ReminderStyles() {
       <div className="text-center text-red-500 p-4">
         <p>{error}</p>
         <Button onClick={() => window.location.reload()} className="mt-4">
-          Retry
+          重试
         </Button>
       </div>
     );
@@ -123,9 +123,9 @@ export default function ReminderStyles() {
   return (
     <div className="space-y-8 p-1">
       <div className="flex flex-col gap-1">
-        <h3 className="text-2xl font-heading tracking-tight">Background Style</h3>
+        <h3 className="text-2xl font-heading tracking-tight">背景样式</h3>
         <p className="text-sm text-muted-foreground">
-          Select a visual theme to be displayed during break reminders.
+          选择休息提醒时显示的视觉主题。
         </p>
       </div>
 
@@ -166,7 +166,7 @@ export default function ReminderStyles() {
                 {style.value !== "default" && (
                   <div className="absolute right-2 top-2 flex items-center gap-1 rounded-full border border-amber-500/30 bg-background/80 px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-amber-600 shadow-sm backdrop-blur-md dark:text-amber-400">
                     <Flame className="h-3 w-3" />
-                    Premium
+                    高级版
                   </div>
                 )}
 

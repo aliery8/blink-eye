@@ -60,14 +60,14 @@ export default function BreakConfigScreen({
         {/* Page Header */}
         <div className="text-center space-y-1">
           <h2 className="text-2xl font-bold font-heading">
-            Configure Your Breaks
+            配置你的休息
           </h2>
           <p className="text-xs text-muted-foreground leading-relaxed">
             The 20-20-20 rule: every{" "}
-            <span className="text-primary font-semibold">20 minutes</span>, look
+            <span className="text-primary font-semibold">20 分钟</span>, look
             at something{" "}
-            <span className="text-primary font-semibold">20 feet away</span> for{" "}
-            <span className="text-primary font-semibold">20 seconds</span>.
+            <span className="text-primary font-semibold">6 米外</span> for{" "}
+            <span className="text-primary font-semibold">20 秒</span>.
           </p>
         </div>
 
@@ -81,8 +81,8 @@ export default function BreakConfigScreen({
                   <RiTimerFill className="w-4 h-4 text-primary-foreground" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold font-heading leading-none">Break Interval</p>
-                  <p className="text-[11px] text-muted-foreground mt-0.5">How often to remind you?</p>
+                  <p className="text-sm font-bold font-heading leading-none">休息间隔</p>
+                  <p className="text-[11px] text-muted-foreground mt-0.5">多久提醒一次？</p>
                 </div>
               </div>
 
@@ -102,7 +102,7 @@ export default function BreakConfigScreen({
                       }}
                     >
                       <span className="text-base font-bold">{min}</span>
-                      <span className="text-xs text-muted-foreground">min</span>
+                      <span className="text-xs text-muted-foreground">分</span>
                     </Button>
                   );
                 })}
@@ -113,13 +113,13 @@ export default function BreakConfigScreen({
                     ref={customIntervalRef}
                     type="number"
                     min={1}
-                    placeholder="Custom"
+                    placeholder="自定义"
                     defaultValue={isCustomInterval ? breakInterval : ""}
                     onChange={(e) => handleCustomInterval(e.target.value)}
                     className="h-9 text-center text-base font-bold rounded-full"
                   />
                   <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted-foreground pointer-events-none">
-                    min
+                    分
                   </span>
                 </div>
               </div>
@@ -141,8 +141,8 @@ export default function BreakConfigScreen({
                   <RiAlarmFill className="w-4 h-4 text-primary-foreground" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold font-heading leading-none">Break Duration</p>
-                  <p className="text-[11px] text-muted-foreground mt-0.5">How long each break lasts?</p>
+                  <p className="text-sm font-bold font-heading leading-none">休息时长</p>
+                  <p className="text-[11px] text-muted-foreground mt-0.5">每次休息多长时间？</p>
                 </div>
               </div>
 
@@ -162,7 +162,7 @@ export default function BreakConfigScreen({
                       }}
                     >
                       <span className="text-base font-bold">{sec}</span>
-                      <span className="text-xs text-muted-foreground">sec</span>
+                      <span className="text-xs text-muted-foreground">秒</span>
                     </Button>
                   );
                 })}
@@ -173,13 +173,13 @@ export default function BreakConfigScreen({
                     ref={customDurationRef}
                     type="number"
                     min={1}
-                    placeholder="Custom"
+                    placeholder="自定义"
                     defaultValue={isCustomDuration ? breakDuration : ""}
                     onChange={(e) => handleCustomDuration(e.target.value)}
                     className="h-9 text-center text-base font-bold rounded-full"
                   />
                   <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted-foreground pointer-events-none">
-                    sec
+                    秒
                   </span>
                 </div>
               </div>
@@ -202,18 +202,18 @@ export default function BreakConfigScreen({
                 <RiMessage2Fill className="w-4 h-4 text-primary-foreground" />
               </div>
               <div>
-                <p className="text-sm font-bold font-heading leading-none">Reminder Message</p>
-                <p className="text-[11px] text-muted-foreground mt-0.5">What should Blink Eye say during your break?</p>
+                <p className="text-sm font-bold font-heading leading-none">提醒文案</p>
+                <p className="text-[11px] text-muted-foreground mt-0.5">休息时想让 Blink Eye 说点什么？</p>
               </div>
             </div>
             <Input
-              placeholder="Pause! Look into the distance, and best if you walk a bit."
+              placeholder="停一下！望向远处，最好走动走动。"
               value={reminderText}
               onChange={(e) => setReminderText(e.target.value)}
               className="w-full text-sm text-center"
             />
             <p className="text-[11px] text-center text-muted-foreground">
-              This message appears on screen during every break overlay.
+              每次休息界面上都会显示这段文字。
             </p>
           </CardContent>
         </Card>

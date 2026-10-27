@@ -81,7 +81,7 @@ const Workday = () => {
 
   const handleSave = async () => {
     if (!canAccessPremiumFeatures) {
-      toast.error("You need a valid license to save Workday settings.", {
+      toast.error("需要有效许可证才能保存工作日设置。", {
         duration: 2000,
         position: "bottom-right",
       });
@@ -96,7 +96,7 @@ const Workday = () => {
       );
     }
     triggerUpdate();
-    toast.success("Workday settings saved!", {
+    toast.success("工作日设置已保存！", {
       duration: 2000,
       position: "bottom-right",
     });
@@ -105,7 +105,7 @@ const Workday = () => {
   const handleWorkdayToggle = async () => {
     if (!canAccessPremiumFeatures) {
       setIsWorkdayEnabled(false); // Ensure toggle is turned off
-      toast.error("You need a valid license to enable this feature.", {
+      toast.error("需要有效许可证才能启用该功能。", {
         duration: 2000,
         position: "bottom-right",
       });
@@ -129,7 +129,7 @@ const Workday = () => {
   };
 
   if (!workday) {
-    return <div>Loading...</div>;
+    return <div>加载中…</div>;
   }
 
   return (
@@ -138,16 +138,15 @@ const Workday = () => {
         <div className="flex items-center justify-between">
           <div>
             <h3 className="text-2xl font-heading tracking-wide">
-              Workday Setup
+              工作日设置
             </h3>
             <p className="text-muted-foreground">
-              Configure your work hours for each day of the week. <br /> Toggle
-              to set working or non-working days.
+              为每周的每一天设置工作时段。 <br /> 切换以设置工作日或非工作日。
             </p>
           </div>
           <div className="flex items-center space-x-2">
             <Label htmlFor="workday-toggle" className="text-sm">
-              Enable Workday
+              启用工作日
             </Label>
             <Switch
               id="workday-toggle"
@@ -166,7 +165,7 @@ const Workday = () => {
                 <h3 className="font-semibold text-lg">{day}</h3>
                 <div className="flex items-center space-x-2">
                   <Label htmlFor={`${day}-toggle`} className="text-sm">
-                    Working Day
+                    工作日
                   </Label>
                   <Switch
                     id={`${day}-toggle`}
@@ -182,7 +181,7 @@ const Workday = () => {
                       htmlFor={`${day}-start`}
                       className="text-sm font-medium"
                     >
-                      Start Time
+                      开始时间
                     </Label>
                     <div className="relative">
                       <Clock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
@@ -202,7 +201,7 @@ const Workday = () => {
                       htmlFor={`${day}-end`}
                       className="text-sm font-medium"
                     >
-                      End Time
+                      结束时间
                     </Label>
                     <div className="relative">
                       <Clock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
@@ -219,7 +218,7 @@ const Workday = () => {
                   </div>
                 </div>
               ) : (
-                <p className="text-muted-foreground italic">Non-working day</p>
+                <p className="text-muted-foreground italic">非工作日</p>
               )}
               <Separator />
             </div>
@@ -227,7 +226,7 @@ const Workday = () => {
         </div>
       )}
       <Button onClick={handleSave} className="w-full">
-        Save Workday Settings
+        保存工作日设置
       </Button>
     </div>
   );

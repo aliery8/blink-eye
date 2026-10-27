@@ -187,48 +187,48 @@ const AboutPage = () => {
       {/* ── Features Grid ────────────────────────── */}
       <section className="space-y-4 pt-2 border-t border-border/30">
         <h2 className="font-heading text-[10px] font-bold uppercase tracking-widest text-muted-foreground/50">
-          Core Features
+          核心功能
         </h2>
         <div className="grid gap-3 sm:grid-cols-2">
           <FeatureCard
             icon={IoEye}
-            title="20-20-20 Rule"
-            description="Automated breaks every 20 minutes to prevent eye strain."
+            title="20-20-20 法则"
+            description="每 20 分钟自动休息，缓解眼睛疲劳。"
             colorClass="text-emerald-600 dark:text-emerald-400"
             bgClass="bg-emerald-500/10"
           />
           <FeatureCard
             icon={IoBarChart}
-            title="Usage Statistics"
-            description="Track your daily screen time to optimize your work-life balance."
+            title="使用统计"
+            description="记录每日屏幕使用时间，帮你平衡工作与休息。"
             colorClass="text-orange-600 dark:text-orange-400"
             bgClass="bg-orange-500/10"
           />
           <FeatureCard
             icon={IoTimer}
-            title="Pomodoro & Workday"
-            description="Break tasks into intervals and schedule your entire workday."
+            title="番茄钟与工作日"
+            description="把任务拆成时间块，规划整天的作息。"
             colorClass="text-sky-600 dark:text-sky-400"
             bgClass="bg-sky-500/10"
           />
           <FeatureCard
             icon={IoColorPalette}
-            title="Themes & Customization"
-            description="Personalize reminder screens, sounds, and text to suit your mood."
+            title="主题与个性化"
+            description="按你的心情定制提醒界面、声音和文案。"
             colorClass="text-rose-600 dark:text-rose-400"
             bgClass="bg-rose-500/10"
           />
           <FeatureCard
             icon={IoDesktop}
-            title="Screen Savers"
-            description="Beautiful animated screen savers to help you relax during breaks."
+            title="休息屏保"
+            description="休息时播放的精美动态屏保，帮你真正放松。"
             colorClass="text-indigo-600 dark:text-indigo-400"
             bgClass="bg-indigo-500/10"
           />
           <FeatureCard
             icon={IoShieldCheckmark}
-            title="Privacy First"
-            description="Runs entirely locally. No accounts, no data collection."
+            title="隐私优先"
+            description="完全本地运行，无需账号，不收集数据。"
             colorClass="text-violet-600 dark:text-violet-400"
             bgClass="bg-violet-500/10"
           />
@@ -238,7 +238,7 @@ const AboutPage = () => {
       {/* ── Health & Productivity Benefits ────────── */}
       <section className="space-y-3 pt-2">
         <h2 className="font-heading text-[10px] font-bold uppercase tracking-widest text-muted-foreground/50">
-          How Blink Eye Helps
+          Blink Eye 如何帮你
         </h2>
         <div className="flex flex-wrap gap-2">
           <BenefitPill
@@ -258,7 +258,7 @@ const AboutPage = () => {
       {/* ── Links & Support ──────────────────────── */}
       <section className="space-y-3 pt-2 border-t border-border/30">
         <h2 className="font-heading text-[10px] font-bold uppercase tracking-widest text-muted-foreground/50">
-          Support the Project
+          支持这个项目
         </h2>
         <p className="font-heading text-[12px] text-muted-foreground mb-3 leading-relaxed">
           Blink Eye is open-source. By purchasing a license, you unlock premium
@@ -268,26 +268,26 @@ const AboutPage = () => {
         <div className="grid gap-2 sm:grid-cols-2">
           <LinkCard
             icon={IoHeart}
-            title="Get Premium"
-            description="Unlock features & support us"
+            title="升级高级版"
+            description="解锁全部功能并支持我们"
             href="https://blinkeye.app/pricing"
           />
           <LinkCard
             icon={IoLogoGithub}
-            title="Source Code"
-            description="Star, fork, or contribute"
+            title="源代码"
+            description="Star、Fork 或参与贡献"
             href="https://github.com/nomandhoni-cs/blink-eye"
           />
           <LinkCard
             icon={IoGlobe}
-            title="Website"
-            description="Read the documentation"
+            title="官网"
+            description="阅读文档"
             href="https://blinkeye.app"
           />
           <LinkCard
             icon={IoPeople}
-            title="Community"
-            description="Join the conversation"
+            title="社区"
+            description="加入讨论"
             href="https://tally.so/r/wo0ZrN"
           />
         </div>

@@ -274,10 +274,9 @@ export default function UsageTimeChart() {
     return (
       <Alert variant="destructive">
         <AlertCircle className="h-4 w-4" />
-        <AlertTitle>Error</AlertTitle>
+        <AlertTitle>错误</AlertTitle>
         <AlertDescription>
-          No time data available. Please check the data being passed to the
-          component.
+          暂无时间数据，请检查传入组件的数据。
         </AlertDescription>
       </Alert>
     );
@@ -290,7 +289,7 @@ export default function UsageTimeChart() {
       <CardHeader className="flex flex-row items-center justify-between">
         <div className="space-y-2">
           <CardTitle className="font-heading tracking-wider">
-            Device Usage Time
+            设备使用时间
           </CardTitle>
           <CardDescription>
             {selectedRange === "monthly"
@@ -395,8 +394,7 @@ export default function UsageTimeChart() {
                 : timeRanges[selectedRange]}
             </AlertTitle>
             <AlertDescription>
-              No activity recorded for the selected time range. Please ensure
-              the app is tracking your activity.
+              所选时间段内没有记录。请确认应用正在统计活动。
             </AlertDescription>
           </Alert>
         )}

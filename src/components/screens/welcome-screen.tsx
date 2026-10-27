@@ -26,7 +26,7 @@ const features = [
   },
   {
     icon: <RiCheckboxCircleFill className="w-5 h-5 text-primary" />,
-    label: "TODO List",
+    label: "待办清单",
   },
   {
     icon: <RiShieldFill className="w-5 h-5 text-primary" />,
@@ -48,7 +48,7 @@ export default function WelcomeScreen({
           <span className="text-primary">Blink Eye</span>
         </h1>
         <p className="text-sm text-foreground/50 font-heading">
-          Your eye health companion — let's get you set up in 1 minute.
+          你的护眼伙伴——1 分钟完成设置。
         </p>
       </div>
 
@@ -76,11 +76,11 @@ export default function WelcomeScreen({
       <div className="w-full max-w-sm space-y-2 mt-4">
         <div className="flex items-center justify-center space-x-1.5 text-xs text-foreground/50">
           <RiMailAddFill className="w-3.5 h-3.5 text-primary" />
-          <span>Only used if we ever need to reach you about the app</span>
+          <span>仅在需要就应用相关事宜联系你时使用</span>
         </div>
         <Input
           type="email"
-          placeholder="your@email.com"
+          placeholder="you@example.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           aria-invalid={emailError !== null}
@@ -99,7 +99,7 @@ export default function WelcomeScreen({
           </p>
         ) : (
           <p className="text-xs text-foreground/40">
-            No newsletters. No spam. Just important app updates.
+            不发通讯、不打扰，只推送重要更新。
           </p>
         )}
       </div>

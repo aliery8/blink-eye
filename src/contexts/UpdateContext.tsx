@@ -148,7 +148,7 @@ export const UpdateProvider = ({ children }: { children: ReactNode }) => {
           key: DISMISSED_VERSION_KEY,
         });
         if (!silent) {
-          toast.success(`Update available: v${update.version}`, {
+          toast.success(`发现新版本：v${update.version}`, {
             duration: 5000,
           });
         }
@@ -163,7 +163,7 @@ export const UpdateProvider = ({ children }: { children: ReactNode }) => {
       }
     } catch (error) {
       console.error("[UpdateContext] update check failed:", error);
-      if (!silent) toast.error("Update check failed. Please try again.");
+      if (!silent) toast.error("检查更新失败，请重试。");
     } finally {
       setIsChecking(false);
     }
@@ -175,10 +175,10 @@ export const UpdateProvider = ({ children }: { children: ReactNode }) => {
     try {
       const update = await check();
       if (!update) {
-        toast("No update available to install.");
+        toast("没有可安装的更新。");
         return;
       }
-      toast.loading(`Downloading v${update.version}...`, { id: "download" });
+      toast.loading(`正在下载 v${update.version}…`, { id: "download" });
 
       let downloaded = 0;
       let contentLength = 0;
@@ -209,7 +209,7 @@ export const UpdateProvider = ({ children }: { children: ReactNode }) => {
       }, 1000);
     } catch (error) {
       console.error("[UpdateContext] update install failed:", error);
-      toast.error("Update install failed. Please try again.", {
+      toast.error("安装更新失败，请重试。", {
         id: "download",
       });
     } finally {

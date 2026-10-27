@@ -60,10 +60,10 @@ const AutoStartToggle = () => {
           htmlFor="autostart"
           className="font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
         >
-          Run on Startup
+          开机启动
         </Label>
         <p className="text-sm text-muted-foreground">
-          Automatically start this app when your computer boots up
+          开机时自动启动本应用
         </p>
       </div>
       <Switch

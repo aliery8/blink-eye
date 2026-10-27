@@ -66,7 +66,7 @@ export const TodayTodoTasks: React.FC<{ className?: string }> = ({
           <div className="flex items-center space-x-2">
             <CalendarCheck2 className="h-5 w-5 text-foreground/70" />
             <h3 className="text-sm font-semibold text-foreground/80">
-              Today's Tasks
+              今日任务
             </h3>
           </div>
           <Badge variant="secondary" className="text-xs">

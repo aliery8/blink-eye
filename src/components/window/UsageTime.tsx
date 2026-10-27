@@ -27,8 +27,7 @@ const UsageTime = () => {
       ) : (
         <div className="w-full h-96 flex flex-col space-y-8 justify-center items-center rounded-lg">
           <h3 className="text-center text-white font-heading tracking-wide text-3xl">
-            Your support will help the developer to make this project better &
-            add more features.
+            你的支持会帮助开发者把项目做得更好，并加入更多功能。
           </h3>
           <Button asChild>
             <Link
@@ -39,8 +38,8 @@ const UsageTime = () => {
               <CheckCircle2Icon className="mr-2" />
               Get a License to Support this project, And{" "}
               <b>
-                See your
-                <BarChart className="inline text-green-500" /> Usage Time
+                查看你的
+                <BarChart className="inline text-green-500" /> 使用时长
               </b>
             </Link>
           </Button>

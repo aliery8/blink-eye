@@ -25,7 +25,7 @@ export async function migrateScreenTimeToSQLite(): Promise<void> {
       (await store.get("isUsageTimeMigratedToSQLite")) || false;
 
     if (isMigrated) {
-      console.log("Usage time data has already been migrated to SQLite.");
+      console.log("使用时长数据已迁移到 SQLite。");
       return;
     }
 
@@ -79,7 +79,7 @@ export async function migrateScreenTimeToSQLite(): Promise<void> {
     await store.set("isUsageTimeMigratedToSQLite", true);
     await store.save();
 
-    console.log("Migration to SQLite completed successfully.");
+    console.log("已成功迁移到 SQLite。");
   } catch (error) {
     console.error("Failed to migrate usage time data:", error);
   }

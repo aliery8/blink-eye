@@ -89,8 +89,8 @@ function useCountUp(target: number, durationMs = 1400): number {
 const FALLBACK_MESSAGE: ComposedMessage = {
   templateId: "window-fallback",
   headline: "Your eyes have a friend in you",
-  body: "Every break you take is a small kindness to future you. Premium is how you look after the project back — and unlock themes and multi-monitor.",
-  cta: "Support Blink Eye",
+  body: "每一次休息都是送给未来自己的小礼物。高级版既能把项目撑下去，也能解锁主题和多显示器。",
+  cta: "支持 Blink Eye",
 };
 
 const HeroNumber = ({ value }: { value: number }) => {
@@ -217,12 +217,12 @@ const PremiumNudgeWindow = () => {
             className="nudge-blink size-9 drop-shadow-sm"
           />
           <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">
-            Your Blink Eye story
+            你的 Blink Eye 历程
           </span>
         </div>
 
         {hero ? (
-          <section className="mt-6" aria-label="Your progress">
+          <section className="mt-6" aria-label="你的进度">
             <HeroNumber value={hero.value} />
             <p className="mt-2 text-sm font-medium text-foreground/80">
               {hero.label}
@@ -275,7 +275,7 @@ const PremiumNudgeWindow = () => {
             className="h-11 w-full text-[15px]"
           >
             <HeartIcon className="size-4" />
-            {message?.cta ?? "View premium"}
+            {message?.cta ?? "查看高级版"}
           </Button>
           <div className="mt-2 flex gap-2">
             <Button
@@ -284,7 +284,7 @@ const PremiumNudgeWindow = () => {
               variant="ghost"
               className="flex-1 text-muted-foreground"
             >
-              Remind me next week
+              下周再提醒我
             </Button>
             <Button
               onClick={() => closeWith("dismissed")}
@@ -292,7 +292,7 @@ const PremiumNudgeWindow = () => {
               variant="ghost"
               className="flex-1 text-muted-foreground"
             >
-              Not now
+              暂不
             </Button>
           </div>
         </div>

@@ -62,16 +62,16 @@ const MultiMonitorToggle = () => {
     const showStatus = isPending || !canAccessPremiumFeatures;
     const isStatusUnconfirmed = trialError || licenseError || !trialInfo?.install_date || !!trialInfo?.clock_manipulated;
     const statusReason = isPending || isRefreshing
-        ? "Checking trial and license status. Monitor choices are temporarily unavailable."
+        ? "正在检查试用与许可证状态，显示器选项暂时不可用。"
         : isSaving
-            ? "Saving monitor preference..."
+            ? "正在保存显示器偏好…"
             : trialError || licenseError
-                    ? "Unable to confirm premium access. Retry the status check or check your license. Free breaks use the primary monitor."
+                    ? "无法确认高级版权限。请重试状态检查或核验许可证；免费版仅在主显示器上显示休息界面。"
                     : trialInfo?.clock_manipulated
-                        ? "Trial unavailable because the system date is before installation. Check your system date, then retry."
+                        ? "系统日期早于安装日期，试用状态不可用。请检查系统日期后重试。"
                         : !trialInfo?.install_date
-                            ? "Trial information is unavailable. Retry the status check or activate a license."
-                            : "Your trial has expired and no active paid license was found. Free breaks use the primary monitor.";
+                            ? "试用信息不可用。请重试状态检查，或激活许可证。"
+                            : "试用已结束，且未找到有效付费许可证。免费版仅在主显示器上显示休息界面。";
 
     useEffect(() => {
         const initializeMultiMonitor = async () => {
@@ -99,7 +99,7 @@ const MultiMonitorToggle = () => {
             if (enableMultiMonitor) {
                 const snapshot = await refreshPremiumFeatures();
                 if (!snapshot.canAccessPremiumFeatures) {
-                    toast.error("Premium access could not be confirmed. No monitor preference was changed.", {
+                    toast.error("无法确认高级版权限，显示器偏好未改动。", {
                         duration: 3000,
                         position: "bottom-right",
                     });
@@ -117,8 +117,8 @@ const MultiMonitorToggle = () => {
 
             toast.success(
                 enableMultiMonitor
-                    ? "Backgrounds on all displays; controls on primary."
-                    : "Break reminders on primary display only.",
+                    ? "所有显示器显示背景，主显示器显示控件。"
+                    : "休息提醒仅在主显示器显示。",
                 {
                     duration: 2000,
                     position: "bottom-right",
@@ -126,7 +126,7 @@ const MultiMonitorToggle = () => {
             );
         } catch (error) {
             console.error("Failed to update multi-monitor setting:", error);
-            toast.error("Failed to save setting. Please try again.", {
+            toast.error("保存设置失败，请重试。", {
                 duration: 2000,
                 position: "bottom-right",
             });
@@ -150,9 +150,9 @@ const MultiMonitorToggle = () => {
     return (
         <div className="rounded-lg border border-muted p-6 space-y-4">
             <div>
-                <Label className="text-base font-semibold">Monitor display mode</Label>
+                <Label className="text-base font-semibold">显示器显示模式</Label>
                 <p className="text-sm text-muted-foreground mt-1">
-                    Choose whether the break background fills one screen or every screen
+                    选择休息背景只铺满一块屏幕，还是所有屏幕
                 </p>
             </div>
 
@@ -182,9 +182,9 @@ const MultiMonitorToggle = () => {
                             <PiMonitorFill size={40} />
                         </div>
                         <div>
-                            <h3 className="font-semibold text-lg">Primary monitor</h3>
+                            <h3 className="font-semibold text-lg">主显示器</h3>
                             <p className="text-sm text-muted-foreground mt-1">
-                                Background and controls on your main display only
+                                仅在主显示器上显示背景与控件
                             </p>
                         </div>
                         {primarySelected && (
@@ -290,7 +290,7 @@ const MultiMonitorToggle = () => {
                                         size={12}
                                     />
                                     <span className="text-xs font-bold text-amber-700 dark:text-amber-400 tracking-wide">
-                                        PREMIUM
+                                        高级版
                                     </span>
                                 </div>
                             )}
@@ -328,11 +328,11 @@ const MultiMonitorToggle = () => {
                         <div className="flex flex-wrap gap-2">
                             {isStatusUnconfirmed && (
                                 <Button type="button" size="sm" variant="secondary" disabled={isBusy} onClick={() => void refreshPremiumFeatures()}>
-                                    {isRefreshing ? "Checking..." : "Retry status"}
+                                    {isRefreshing ? "检查中…" : "Retry status"}
                                 </Button>
                             )}
                             <Button size="sm" variant="outline" asChild>
-                                <Link to="/activatelicense">Check or activate license</Link>
+                                <Link to="/activatelicense">检查或激活许可证</Link>
                             </Button>
                         </div>
                     )}

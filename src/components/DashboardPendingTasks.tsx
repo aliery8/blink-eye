@@ -112,9 +112,9 @@ const DashboardPendingTasks = ({ className }: { className?: string }) => {
             <DashboardIconBadge color={accentHex}>
               <ClipboardList className="size-4" />
             </DashboardIconBadge>
-            <span>Pending Tasks</span>
+            <span>待完成任务</span>
           </CardTitle>
-          <CardDescription>Upgrade to manage your tasks</CardDescription>
+          <CardDescription>升级后可管理任务</CardDescription>
         </CardHeader>
         <CardContent className="flex-1 flex items-center justify-center">
           <Button asChild style={{ backgroundColor: accentHex }}>
@@ -123,7 +123,7 @@ const DashboardPendingTasks = ({ className }: { className?: string }) => {
               target="_blank"
               className="text-center hover:opacity-90"
             >
-              Unlock Task Management
+              解锁任务管理
             </Link>
           </Button>
         </CardContent>
@@ -144,7 +144,7 @@ const DashboardPendingTasks = ({ className }: { className?: string }) => {
           <DashboardIconBadge color={accentHex}>
             <ClipboardList className="size-4" />
           </DashboardIconBadge>
-          <span>Pending Tasks</span>
+          <span>待完成任务</span>
           {tasks.length > 0 && (
             <span className="ml-auto text-sm text-muted-foreground">
               {tasks.length} pending
@@ -163,9 +163,9 @@ const DashboardPendingTasks = ({ className }: { className?: string }) => {
         ) : tasks.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full text-center p-4">
             <CheckCircle className="h-8 w-8 text-green-500 mb-2" />
-            <p className="font-medium">All tasks completed!</p>
+            <p className="font-medium">所有任务已完成！</p>
             <p className="text-sm text-muted-foreground">
-              Good job taking care of your tasks
+              任务都照顾到了，做得好
             </p>
           </div>
         ) : (

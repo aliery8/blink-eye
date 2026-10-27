@@ -73,7 +73,7 @@ const TodoPage: React.FC = () => {
           await db.execute("ALTER TABLE todos ADD COLUMN reminder_time TEXT;");
         } catch (error) {
           console.log(
-            "Could not add reminder_time column, it might already exist."
+            "无法添加 reminder_time 列，可能已存在。"
           );
         }
       }
@@ -182,7 +182,7 @@ const TodoPage: React.FC = () => {
   return (
     <div className="max-w-full space-y-2 relative">
       <h3 className="text-2xl text-center font-heading tracking-wide">
-        TODO List
+        待办清单
       </h3>
       {canAccessPremiumFeatures ? (
         <>
@@ -190,7 +190,7 @@ const TodoPage: React.FC = () => {
           <div className="space-y-2 max-w-lg mx-auto">
             <div className="flex space-x-2">
               <Input
-                placeholder="Add a new task or Reminder"
+                placeholder="添加新任务或提醒"
                 value={newTask}
                 onChange={(e) => setNewTask(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && addTask()}
@@ -199,7 +199,7 @@ const TodoPage: React.FC = () => {
             </div>
             {showDetailsInput && (
               <Textarea
-                placeholder="Add details"
+                placeholder="添加详情"
                 value={newTaskDetails}
                 onChange={(e) => setNewTaskDetails(e.target.value)}
                 className="mt-2"
@@ -214,7 +214,7 @@ const TodoPage: React.FC = () => {
                     onClick={() => setShowDetailsInput(!showDetailsInput)}
                   >
                     <Text className="h-4 w-4 mr-1" />
-                    Details
+                    详情
                   </Button>
                   <Popover>
                     <PopoverTrigger asChild>
@@ -223,7 +223,7 @@ const TodoPage: React.FC = () => {
                         {newTaskDeadline ? (
                           format(newTaskDeadline, "PPP")
                         ) : (
-                          <span>Deadline</span>
+                          <span>截止时间</span>
                         )}
                       </Button>
                     </PopoverTrigger>
@@ -253,7 +253,7 @@ const TodoPage: React.FC = () => {
                   />
 
                   <Button onClick={addTask} size="sm" className="h-9">
-                    Add Task
+                    添加任务
                   </Button>
                 </div>
               </>
@@ -300,7 +300,7 @@ const TodoPage: React.FC = () => {
                                 details: e.target.value,
                               })
                             }
-                            placeholder="Optional details"
+                            placeholder="详情（可选）"
                           />
                           <div className="flex items-center space-x-2 pt-1">
                             <Popover>
@@ -317,7 +317,7 @@ const TodoPage: React.FC = () => {
                                       "PPP"
                                     )
                                   ) : (
-                                    <span>Pick a date</span>
+                                    <span>选择日期</span>
                                   )}
                                 </Button>
                               </PopoverTrigger>
@@ -369,13 +369,13 @@ const TodoPage: React.FC = () => {
                               size="sm"
                               onClick={() => setEditingTask(null)}
                             >
-                              Cancel
+                              取消
                             </Button>
                             <Button
                               size="sm"
                               onClick={() => updateTask(editingTask)}
                             >
-                              Save Changes
+                              保存更改
                             </Button>
                           </div>
                         </div>
@@ -485,8 +485,7 @@ const TodoPage: React.FC = () => {
       ) : (
         <div className=" w-full h-96 flex flex-col space-y-8 justify-center items-center rounded-lg">
           <h3 className="text-center text-white font-heading tracking-wide text-3xl">
-            Your support will help the developer to make this project better &
-            add more features.
+            你的支持会帮助开发者把项目做得更好，并加入更多功能。
           </h3>
           <Button asChild>
             <Link
@@ -496,7 +495,7 @@ const TodoPage: React.FC = () => {
             >
               <CheckCircle2Icon className="mr-2" />
               Get a License to Support this project,{" "}
-              <span className="font-bold"> And Unlock TODO List</span>
+              <span className="font-bold"> 并解锁待办清单</span>
             </Link>
           </Button>
         </div>

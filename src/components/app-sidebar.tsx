@@ -47,17 +47,17 @@ const mainNav = [{ title: "Dashboard", url: "/", icon: IoGrid }];
 
 const proNav = [
   { title: "Reminder Settings", url: "/reminderSettings", icon: IoTimer },
-  { title: "Usage Time", url: "/usageTime", icon: IoBarChart },
+  { title: "使用时长", url: "/usageTime", icon: IoBarChart },
   { title: "Reminder Themes", url: "/reminderthemes", icon: IoColorPalette },
   { title: "Multi-Monitor", url: "/multimonitor", icon: PiMonitorFill },
   { title: "Todo List", url: "/todoList", icon: LucideListTodo },
-  { title: "Workday Setup", url: "/workday", icon: IoCalendar },
-  { title: "Screen Savers", url: "/screenSavers", icon: IoDesktop },
+  { title: "工作日设置", url: "/workday", icon: IoCalendar },
+  { title: "休息屏保", url: "/screenSavers", icon: IoDesktop },
 ];
 
 const systemNav = [
   { title: "Settings", url: "/allSettings", icon: IoSettings },
-  { title: "Theme Picker", url: "/themePicker", icon: IoColorWand },
+  { title: "主题选择", url: "/themePicker", icon: IoColorWand },
   { title: "Activate License", url: "/activatelicense", icon: IoKey },
   {
     title: "Submit Feedback",
@@ -201,7 +201,7 @@ export function AppSidebar() {
           {/* ── Features Section ── */}
           <SidebarGroup className="p-0">
             <SidebarGroupLabel className="h-6 font-heading text-[10px] font-semibold tracking-widest text-muted-foreground/50 uppercase px-3 mb-0.5">
-              Features
+              功能
             </SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu className="gap-1">
@@ -233,7 +233,7 @@ export function AppSidebar() {
           {/* ── System Section ── */}
           <SidebarGroup className="p-0">
             <SidebarGroupLabel className="h-6 font-heading text-[10px] font-semibold tracking-widest text-muted-foreground/50 uppercase px-3 mb-0.5">
-              System
+              跟随系统
             </SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu className="gap-1">
@@ -274,12 +274,12 @@ export function AppSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton
                   size="sm"
-                  tooltip="Pro Active"
+                  tooltip="主动提醒"
                   className="cursor-default border border-green-500/25 dark:border-green-400/20 bg-green-500/5 dark:bg-green-400/5 hover:bg-green-500/5 dark:hover:bg-green-400/5"
                 >
                   <IoCheckmarkCircle className="text-[0.95rem] shrink-0 text-green-500 dark:text-green-400" />
                   <span className="font-heading text-[13px] font-semibold tracking-wide text-green-700 dark:text-green-400">
-                    Activated
+                    已激活
                   </span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -288,7 +288,7 @@ export function AppSidebar() {
                 <SidebarMenuButton
                   asChild
                   size="sm"
-                  tooltip="Unlock Premium"
+                  tooltip="解锁高级版"
                   className="relative overflow-hidden border border-amber-500/25 dark:border-amber-400/20 bg-amber-500/5 dark:bg-amber-400/5 hover:border-amber-500/50 dark:hover:border-amber-400/35 shadow-sm transition-all group"
                 >
                   <Link to="https://blinkeye.app/en/pricing" target="_blank">
@@ -307,7 +307,7 @@ export function AppSidebar() {
                       style={{ fill: "url(#amberGradient)" }}
                     />
                     <span className="relative z-10 font-heading text-[13px] font-bold tracking-wide text-amber-700 dark:text-amber-400 group-hover:text-amber-800 dark:group-hover:text-amber-300 transition-colors">
-                      Unlock Premium
+                      解锁高级版
                     </span>
                   </Link>
                 </SidebarMenuButton>

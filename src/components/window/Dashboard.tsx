@@ -124,7 +124,7 @@ const Dashboard = () => {
                 <DashboardIconBadge color={accentHex}>
                   <IoTimer className="size-4" />
                 </DashboardIconBadge>
-                Next break
+                下次休息
               </div>
               <div className="text-4xl font-heading font-semibold tracking-tight sm:text-5xl">
                 {formatCountdown(nextReminder)}
@@ -174,7 +174,7 @@ const Dashboard = () => {
               <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <IoTime className="mb-1 size-4 text-muted-foreground" />
                 <span className="text-2xl font-heading font-semibold sm:text-3xl">{`${timeCount.hours}h ${timeCount.minutes}m`}</span>
-                <span className="text-xs text-muted-foreground">Screen time</span>
+                <span className="text-xs text-muted-foreground">屏幕使用时间</span>
               </div>
             </div>
           </div>
@@ -192,7 +192,7 @@ const Dashboard = () => {
                     <IoAlarm className="size-4" />
                   </DashboardIconBadge>
                 }
-                label="Snoozes today"
+                label="今日稍后提醒"
                 value={formatLimit(
                   stats.snoozesToday,
                   stats.snoozesAllowedPerDay,
@@ -212,7 +212,7 @@ const Dashboard = () => {
                       <IoFlame className="size-4" />
                     </DashboardIconBadge>
                   }
-                  label="Break streak"
+                  label="连续休息"
                   value={stats.breakStreak}
                   detail={`Best ${stats.bestBreakStreak} in a row`}
                 />
@@ -225,7 +225,7 @@ const Dashboard = () => {
                       <IoCheckmarkCircle className="size-4" />
                     </DashboardIconBadge>
                   }
-                  label="Full breaks"
+                  label="完整休息"
                   value={stats.totalBreaksCompleted}
                   detail="Completed without skipping"
                 />

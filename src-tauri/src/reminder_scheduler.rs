@@ -7,6 +7,7 @@ use sqlx::{
 };
 use std::{collections::HashMap, num::NonZeroU32, path::PathBuf, str::FromStr, sync::Arc};
 use tauri::{AppHandle, Manager, WebviewUrl, WebviewWindowBuilder};
+use tauri_plugin_notification::NotificationExt;
 use tokio::{
     sync::{mpsc, Mutex},
     time::{interval, Duration, MissedTickBehavior},
@@ -34,7 +35,7 @@ const DEFAULT_INTERVAL_MINS: u64 = 20;
 /// Default break duration, in seconds.
 const DEFAULT_DURATION_SECS: u64 = 20;
 /// Default reminder message shown on the overlay screen.
-const DEFAULT_REMINDER_TEXT: &str = "Pause! Look into the distance, and best if you walk a bit.";
+const DEFAULT_REMINDER_TEXT: &str = "停一下！望向远处，最好走动走动。";
 /// Default background style for the reminder overlay.
 const DEFAULT_BACKGROUND_STYLE: &str = "default";
 /// Countdown styles the reminder overlay knows how to draw.
@@ -89,6 +90,8 @@ struct ReminderSettings {
     workday: WorkdayConfig,
     /// Whether the user has premium access.
     is_premium: bool,
+    /// Whether the fullscreen break overlay is shown (off = notification only).
+    fullscreen_enabled: bool,
 }
 
 impl Default for ReminderSettings {
@@ -105,6 +108,7 @@ impl Default for ReminderSettings {
             is_workday_enabled: false,
             workday: default_workday_config(),
             is_premium: false,
+            fullscreen_enabled: true,
         }
     }
 }
@@ -346,7 +350,16 @@ impl ReminderScheduler {
         match action {
             ReminderAction::None => Ok(()),
             ReminderAction::ShowBeforeAlert => {
-                spawn_before_alert(app_handle);
+                // The pre-break pill is part of the fullscreen reminder
+                // experience; with the overlay switched off, users only get
+                // the desktop notification from `start_break`.
+                let overlay_enabled = {
+                    let state = self.state.lock().await;
+                    state.settings.fullscreen_enabled
+                };
+                if overlay_enabled {
+                    spawn_before_alert(app_handle);
+                }
                 Ok(())
             }
             ReminderAction::StartBreak => self.start_break(app_handle).await,
@@ -368,6 +381,23 @@ impl ReminderScheduler {
             let (hours, minutes) = self.today_screen_time().await.unwrap_or((0, 0));
             (settings, hours, minutes)
         };
+
+        // Fullscreen overlay switched off: fall back to a desktop notification so
+        // the break is still announced without taking over the screen. The tick
+        // loop's safety net resets the break state on the next tick because no
+        // `reminder_monitor_*` window exists.
+        if !settings.fullscreen_enabled {
+            let _ = app_handle
+                .notification()
+                .builder()
+                .title("该休息一下了")
+                .body(format!(
+                    "望向 6 米外，放松 {} 秒。",
+                    settings.duration_secs.max(1)
+                ))
+                .show();
+            return Ok(());
+        }
 
         let config = ReminderWindowConfig {
             background_style: if settings.is_premium {
@@ -432,6 +462,8 @@ impl ReminderScheduler {
         settings.is_update_available =
             read_config_bool(&app_pool, "isUpdateAvailable", false).await;
         settings.is_workday_enabled = read_config_bool(&app_pool, "isWorkdayEnabled", false).await;
+        settings.fullscreen_enabled =
+            read_config_bool(&app_pool, "fullscreenReminderEnabled", true).await;
 
         if let Some(workday) = read_config_json::<WorkdayConfig>(&app_pool, "blinkEyeWorkday").await
         {
@@ -616,7 +648,7 @@ fn spawn_before_alert(app_handle: &AppHandle) {
         "before_alert",
         WebviewUrl::App("alert.html".into()),
     )
-    .title("Break soon - Blink Eye")
+    .title("马上要休息了 - Blink Eye")
     .inner_size(320.0, 80.0)
     .position(x, y)
     .decorations(false)
@@ -692,7 +724,7 @@ fn spawn_reminder_windows(
 
         let mut builder =
             WebviewWindowBuilder::new(app_handle, &label, WebviewUrl::App(url.into()))
-                .title("Take A Break Reminder - Blink Eye")
+                .title("休息提醒 - Blink Eye")
                 .always_on_top(true)
                 .skip_taskbar(true)
                 .position(x, y)
@@ -841,9 +873,10 @@ async fn ensure_app_config_defaults(pool: &Pool<Sqlite>) -> Result<(), String> {
         ("useCircleProgressTimerStyle", "true"),
         ("isUserOnboarded", "false"),
         ("isMultiMonitorEnabled", "false"),
+        ("fullscreenReminderEnabled", "true"),
         ("blinkEyeReminderInterval", "20"),
         ("blinkEyeReminderDuration", "20"),
-        ("blinkEyeReminderScreenText", "Pause! Look into the distance, and best if you walk a bit."),
+        ("blinkEyeReminderScreenText", "停一下！望向远处，最好走动走动。"),
         ("reminderBackgroundStyle", "default"),
         ("reminderBackgroundStylePreview", "default"),
         ("screenSaverBackgroundStyle", "freesprit"),

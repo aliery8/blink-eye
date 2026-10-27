@@ -20,7 +20,7 @@
 //     send: async function notify(
 //       options: NotificationOptions = {
 //         title: "Tauri",
-//         body: "This is a default notification!",
+//         body: "这是一条默认通知！",
 //       }
 //     ) {
 //       // we could consider settings from the user that dictates where
