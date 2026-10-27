@@ -328,7 +328,7 @@ const MultiMonitorToggle = () => {
                         <div className="flex flex-wrap gap-2">
                             {isStatusUnconfirmed && (
                                 <Button type="button" size="sm" variant="secondary" disabled={isBusy} onClick={() => void refreshPremiumFeatures()}>
-                                    {isRefreshing ? "检查中…" : "Retry status"}
+                                    {isRefreshing ? "检查中…" : "重试状态检查"}
                                 </Button>
                             )}
                             <Button size="sm" variant="outline" asChild>

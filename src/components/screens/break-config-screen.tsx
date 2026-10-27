@@ -232,7 +232,7 @@ export default function BreakConfigScreen({
           <span className="text-muted-foreground text-xs">→</span>
           <Badge variant="outline" className="gap-1.5 max-w-[180px]">
             <RiMessage2Fill className="w-3 h-3" />
-            <span className="truncate">{reminderText || "No message set"}</span>
+            <span className="truncate">{reminderText || "未设置文案"}</span>
           </Badge>
         </div>
       </div>

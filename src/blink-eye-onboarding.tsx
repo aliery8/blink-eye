@@ -82,7 +82,7 @@ export default function UserOnboarding() {
     },
     {
       id: 3,
-      title: "Break Settings",
+      title: "休息设置",
       component: BreakConfigScreen,
       onNext: async () => {
         await OnboardingService.saveBreakConfiguration({
@@ -94,7 +94,7 @@ export default function UserOnboarding() {
     },
     {
       id: 4,
-      title: "Break Clock",
+      title: "休息计时",
       component: TimerStyleScreen,
       onNext: () => saveTimerStyle(timerStyle),
     },
@@ -128,7 +128,7 @@ export default function UserOnboarding() {
     }
 
     if (!EMAIL_REGEX.test(trimmed)) {
-      setEmailError("That email doesn't look right. Double-check it?");
+      setEmailError("这个邮箱看起来不对，再检查一下？");
       return false;
     }
 

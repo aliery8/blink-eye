@@ -25,8 +25,8 @@ export function SidebarNotch() {
     <button
       type="button"
       onClick={toggleSidebar}
-      aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
-      title={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+      aria-label={isCollapsed ? "展开侧边栏" : "收起侧边栏"}
+      title={isCollapsed ? "展开侧边栏" : "收起侧边栏"}
       // `-right-2` puts the notch's left edge exactly at the
       // sidebar-inner's right edge (the container has p-2 = 8px outer
       // padding, so the visible inner box ends 8px in from the

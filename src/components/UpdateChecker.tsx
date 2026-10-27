@@ -91,7 +91,7 @@ export function UpdateChecker() {
           <FaSyncAlt
             className={`text-[11px] ${isChecking ? "animate-spin" : ""}`}
           />
-          {isChecking ? "Checking…" : "Check for updates"}
+          {isChecking ? "Checking…" : "检查更新"}
         </button>
       </div>
 

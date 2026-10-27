@@ -92,7 +92,7 @@ export class OnboardingService {
       }
     } catch (error) {
       console.error("Failed to register user info:", error);
-      toast.error("Couldn't reach the server. Setup finished anyway.", {
+      toast.error("无法连接服务器，设置仍已完成。", {
         duration: 3000,
         position: "bottom-right",
       });

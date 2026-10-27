@@ -33,14 +33,14 @@ const thumbMap: Record<string, string> = {
 
 const styles = [
   { value: "aurora", label: "极光" },
-  { value: "freesprit", label: "Free Sprit" },
-  { value: "particleBackground", label: "Infinite Wave Background" },
-  { value: "starryBackground", label: "Starry Background" },
+  { value: "freesprit", label: "自由灵魂" },
+  { value: "particleBackground", label: "无限波浪背景" },
+  { value: "starryBackground", label: "星空背景" },
   { value: "beamoflife", label: "生命之光" },
-  { value: "shootingmeteor", label: "Shooting Meteor" },
-  { value: "plainGradientAnimation", label: "Plain Gradient Animation" },
-  { value: "polygonAnimation", label: "Polygon Animation" },
-  { value: "canvasShapes", label: "Bouncy Balls" },
+  { value: "shootingmeteor", label: "流星" },
+  { value: "plainGradientAnimation", label: "纯色渐变动画" },
+  { value: "polygonAnimation", label: "多边形动画" },
+  { value: "canvasShapes", label: "弹跳小球" },
 ];
 
 const openScreenSaverWindow = () => {

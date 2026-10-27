@@ -113,7 +113,7 @@ const ActivateLicense = () => {
     e.preventDefault();
 
     if (!activationKey.trim()) {
-      toast.error("Please enter a license key");
+      toast.error("请输入许可证密钥");
       return;
     }
 
@@ -171,7 +171,7 @@ const ActivateLicense = () => {
   };
 
   const maskLicenseKey = (licenseKey: string): string => {
-    if (!licenseKey) return "No license found";
+    if (!licenseKey) return "未找到许可证";
     const segments = licenseKey.split("-");
     return segments
       .map((segment, index) => (index >= 1 && index <= 3 ? "XXXX" : segment))
@@ -190,7 +190,7 @@ const ActivateLicense = () => {
         });
       } catch (err) {
         console.error("Failed to copy text: ", err);
-        toast.error("Failed to copy license key to clipboard", {
+        toast.error("复制许可证密钥失败", {
           duration: 2000,
           position: "bottom-right",
         });
@@ -277,7 +277,7 @@ const ActivateLicense = () => {
                   <span className="truncate font-mono text-xs font-medium">
                     {licenseData?.license_key
                       ? maskLicenseKey(licenseData.license_key)
-                      : "No license found"}
+                      : "未找到许可证"}
                   </span>
                   {licenseData?.license_key && (
                     <span className="shrink-0">
@@ -291,7 +291,7 @@ const ActivateLicense = () => {
                 </button>
               </TooltipTrigger>
               <TooltipContent side="bottom" className="text-xs">
-                {copied ? "Copied!" : "Click to copy full key"}
+                {copied ? "Copied!" : "点击复制完整密钥"}
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>

@@ -112,10 +112,10 @@ const TrialRemaining: React.FC = () => {
       <div role="status" className="w-full rounded-2xl border border-foreground/10 bg-foreground/5 px-5 py-4 mb-4 space-y-2">
         <p className="text-sm font-semibold">
           {trialError
-            ? "Unable to check trial status"
+            ? "无法检查试用状态"
             : trialInfo?.clock_manipulated
-              ? "Trial unavailable: system date is before installation date"
-              : "Trial information is unavailable"}
+              ? "试用不可用：系统日期早于安装日期"
+              : "试用信息不可用"}
         </p>
         <p className="text-xs text-muted-foreground">
           {trialInfo?.clock_manipulated
@@ -189,7 +189,7 @@ const TrialRemaining: React.FC = () => {
                 ].join(" ")}
               >
                 {isExpired
-                  ? "Your trial has expired"
+                  ? "你的试用已结束"
                   : isUrgent
                     ? `⚡ Only ${remainingDays} day${remainingDays > 1 ? "s" : ""} left!`
                     : `${remainingDays} day${remainingDays !== 1 ? "s" : ""} remaining in your trial`}
@@ -225,7 +225,7 @@ const TrialRemaining: React.FC = () => {
         {(licenseError || isExpired) && <div className="relative flex flex-wrap gap-2">
           {licenseError && (
             <Button size="sm" variant="secondary" disabled={isRefreshing} onClick={() => void refreshPremiumFeatures()}>
-              {isRefreshing ? "检查中…" : "Retry status"}
+              {isRefreshing ? "检查中…" : "重试状态检查"}
             </Button>
           )}
           {isExpired && (

@@ -243,15 +243,15 @@ const AboutPage = () => {
         <div className="flex flex-wrap gap-2">
           <BenefitPill
             icon={IoMedkit}
-            text="Prevents Computer Vision Syndrome"
+            text="预防电脑视觉综合征"
           />
           <BenefitPill
             icon={IoCheckmarkCircle}
-            text="Improves Posture & Reduces RSI"
+            text="改善姿势、减少重复性劳损"
           />
-          <BenefitPill icon={IoTrendingUp} text="Boosts Focus & Productivity" />
-          <BenefitPill icon={IoHeart} text="Promotes Mental Wellness" />
-          <BenefitPill icon={IoTimer} text="Builds Healthy Screen Habits" />
+          <BenefitPill icon={IoTrendingUp} text="提升专注与效率" />
+          <BenefitPill icon={IoHeart} text="促进心理放松" />
+          <BenefitPill icon={IoTimer} text="养成健康用屏习惯" />
         </div>
       </section>
 

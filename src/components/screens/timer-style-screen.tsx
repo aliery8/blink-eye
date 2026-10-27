@@ -15,10 +15,10 @@ interface TimerStyleScreenProps {
 }
 
 const OPTIONS: { value: TimerStyle; label: string; description: string }[] = [
-  { value: "circle", label: "圆环", description: "A ring that winds down around the time" },
+  { value: "circle", label: "圆环", description: "沿表盘逐渐消退的圆环" },
   { value: "bar", label: "进度条", description: "大号秒数配细进度条" },
   { value: "dial", label: "表盘", description: "沿屏幕边缘走针，像表盘一样" },
-  { value: "vertical", label: "竖条", description: "A full-height bar that drains top to bottom" },
+  { value: "vertical", label: "竖条", description: "从上到下排空的通高进度条" },
 ];
 
 /** Previews draw on a 16:10 "screen", in the same units as the real break window. */

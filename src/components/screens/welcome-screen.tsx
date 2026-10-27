@@ -18,11 +18,11 @@ interface WelcomeScreenProps {
 const features = [
   {
     icon: <RiTimerFill className="w-5 h-5 text-primary" />,
-    label: "Smart Breaks",
+    label: "智能休息",
   },
   {
     icon: <RiComputerFill className="w-5 h-5 text-primary" />,
-    label: "Screen Time",
+    label: "屏幕使用时间",
   },
   {
     icon: <RiCheckboxCircleFill className="w-5 h-5 text-primary" />,
@@ -30,7 +30,7 @@ const features = [
   },
   {
     icon: <RiShieldFill className="w-5 h-5 text-primary" />,
-    label: "Open Source",
+    label: "开源",
   },
 ];
 

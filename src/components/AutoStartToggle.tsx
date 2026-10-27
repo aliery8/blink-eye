@@ -16,7 +16,7 @@ const AutoStartToggle = () => {
         if (!runOnStartUp || runOnStartUp === "false") {
           await enable();
           await invoke("update_reminder_setting", { key: "isRunOnStartUpEnabledByDefault", value: "true" });
-          toast.success("AutoStart Enabled by Default", {
+          toast.success("默认已开启开机自启", {
             duration: 2000,
             position: "bottom-right",
           });
@@ -36,13 +36,13 @@ const AutoStartToggle = () => {
     try {
       if (checked) {
         await enable();
-        toast.success("Enabled Autostart", {
+        toast.success("已开启开机自启", {
           duration: 2000,
           position: "bottom-right",
         });
       } else {
         await disable();
-        toast.success("Disabled Autostart", {
+        toast.success("已关闭开机自启", {
           duration: 2000,
           position: "bottom-right",
         });

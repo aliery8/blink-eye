@@ -178,7 +178,7 @@ const ReminderSettings = () => {
         setTimerStyle(await loadTimerStyle());
       } catch (error) {
         console.error("Failed to load reminder settings:", error);
-        toast.error("Couldn't load settings. Try again.", {
+        toast.error("加载设置失败，请重试。", {
           duration: 2000,
           position: "bottom-right",
         });
@@ -274,7 +274,7 @@ const ReminderSettings = () => {
       });
       triggerUpdate();
 
-      toast.success("Saved reminder settings", {
+      toast.success("提醒设置已保存", {
         duration: 1500,
         position: "bottom-right",
       });
@@ -284,7 +284,7 @@ const ReminderSettings = () => {
       fireTrigger("settings_saved");
     } catch (error) {
       console.error("Failed to save reminder settings:", error);
-      toast.error("Couldn't save settings. Try again.", {
+      toast.error("保存设置失败，请重试。", {
         duration: 2000,
         position: "bottom-right",
       });
@@ -302,7 +302,7 @@ const ReminderSettings = () => {
       setIsStrictModeEnabled(checked);
     } catch (error) {
       console.error("Failed to update strict mode:", error);
-      toast.error("Couldn't save strict mode. Try again.", {
+      toast.error("保存严格模式失败，请重试。", {
         duration: 2000,
         position: "bottom-right",
       });
@@ -317,7 +317,7 @@ const ReminderSettings = () => {
     } catch (error) {
       console.error("Failed to update timer style:", error);
       setTimerStyle(previous);
-      toast.error("Couldn't save timer style. Try again.", {
+      toast.error("保存计时样式失败，请重试。", {
         duration: 2000,
         position: "bottom-right",
       });
@@ -571,7 +571,7 @@ const ReminderSettings = () => {
           style={{ backgroundColor: accentHex }}
         >
           <IoSave className="mr-2 size-4" />
-          {isSaving ? "Saving…" : "Save changes"}
+          {isSaving ? "Saving…" : "保存更改"}
         </Button>
       )}
     </div>

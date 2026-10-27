@@ -88,7 +88,7 @@ function useCountUp(target: number, durationMs = 1400): number {
 
 const FALLBACK_MESSAGE: ComposedMessage = {
   templateId: "window-fallback",
-  headline: "Your eyes have a friend in you",
+  headline: "你的眼睛有你这样的朋友",
   body: "每一次休息都是送给未来自己的小礼物。高级版既能把项目撑下去，也能解锁主题和多显示器。",
   cta: "支持 Blink Eye",
 };

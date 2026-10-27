@@ -40,12 +40,12 @@ interface DiscountData {
 const features = [
   {
     icon: <RiCheckboxCircleFill className="w-4 h-4 text-primary" />,
-    title: "Todo List",
+    title: "待办清单",
     text: "可以直接在休息界面上安排今天的事。",
   },
   {
     icon: <RiComputerFill className="w-4 h-4 text-primary" />,
-    title: "Screen Time",
+    title: "屏幕使用时间",
     text: "记录你在屏幕前待了多久。",
   },
   {
@@ -142,7 +142,7 @@ export default function DoneScreen({
           <span className="text-muted-foreground text-xs">→</span>
           <Badge variant="outline" className="gap-1.5 max-w-[200px]">
             <RiMessage2Fill className="w-3 h-3 shrink-0" />
-            <span className="truncate">{reminderText || "No message set"}</span>
+            <span className="truncate">{reminderText || "未设置文案"}</span>
           </Badge>
         </div>
 

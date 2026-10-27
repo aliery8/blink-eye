@@ -57,7 +57,7 @@ export const TimePicker: React.FC<TimePickerProps> = ({
       <PopoverTrigger asChild>
         <Button variant="outline" size="sm" onClick={handleTriggerClick}>
           <Clock className="h-4 w-4 mr-1" />
-          {value ? value : "Remind me"}
+          {value ? value : "提醒我"}
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-auto p-0">

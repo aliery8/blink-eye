@@ -40,7 +40,7 @@ function formatLimit(used: number, limit: number) {
 
 function formatCountdown(info: NextReminderInfo | null) {
   if (!info) return "—";
-  if (info.isOnBreak) return "On break";
+  if (info.isOnBreak) return "休息中";
   if (info.nextReminderInSecs <= 0) return "Soon";
 
   const mins = Math.floor(info.nextReminderInSecs / 60);
@@ -131,8 +131,8 @@ const Dashboard = () => {
               </div>
               <p className="mt-1 text-xs text-muted-foreground">
                 {nextReminder?.isOnBreak
-                  ? "Finish your current break"
-                  : "Countdown until your next reminder"}
+                  ? "完成当前这次休息"
+                  : "距离下次提醒的倒计时"}
               </p>
             </div>
           </div>
@@ -227,7 +227,7 @@ const Dashboard = () => {
                   }
                   label="完整休息"
                   value={stats.totalBreaksCompleted}
-                  detail="Completed without skipping"
+                  detail="未跳过完成"
                 />
               </div>
             </>

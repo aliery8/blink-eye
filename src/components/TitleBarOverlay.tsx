@@ -13,18 +13,18 @@ const isMac = platform() === "macos";
 const OVERLAY_H = 32;
 
 const routeTitles: Record<string, string> = {
-  "/": "Dashboard",
-  "/reminderSettings": "Reminder Settings",
-  "/usageTime": "Usage Time",
-  "/reminderthemes": "Reminder Themes",
-  "/multimonitor": "Multi-Monitor",
-  "/todoList": "Todo List",
-  "/workday": "Workday Setup",
-  "/screenSavers": "Screen Savers",
-  "/allSettings": "Settings",
-  "/themePicker": "Theme Picker",
-  "/activatelicense": "Activate License",
-  "/about": "About",
+  "/": "概览",
+  "/reminderSettings": "提醒设置",
+  "/usageTime": "使用时长",
+  "/reminderthemes": "提醒主题",
+  "/multimonitor": "多显示器",
+  "/todoList": "待办清单",
+  "/workday": "工作日设置",
+  "/screenSavers": "休息屏保",
+  "/allSettings": "设置",
+  "/themePicker": "主题选择",
+  "/activatelicense": "激活许可证",
+  "/about": "关于",
 };
 
 // ── Windows / Linux Caption Buttons ──────────────────────────────
@@ -59,7 +59,7 @@ function WinCaptionButtons() {
 
       <button
         onClick={() => appWindow.toggleMaximize()}
-        aria-label={isMaximized ? "Restore Down" : "Maximize"}
+        aria-label={isMaximized ? "还原窗口" : "Maximize"}
         className={cn(BTN, "hover:bg-foreground/8 active:bg-foreground/12")}
       >
         {isMaximized ? (

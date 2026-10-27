@@ -42,9 +42,9 @@ export function useLicenseKey(): UseLicenseKeyReturn {
       }
     } catch (err) {
       setError(
-        err instanceof Error ? err : new Error("Failed to fetch license data")
+        err instanceof Error ? err : new Error("获取许可证数据失败")
       );
-      toast.error("Failed to fetch license data");
+      toast.error("获取许可证数据失败");
     } finally {
       setLoading(false);
     }

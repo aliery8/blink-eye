@@ -278,8 +278,8 @@ const DebugPremiumPanel: React.FC = () => {
         <h4 className="text-xs uppercase text-gray-500 mb-1">
           Reminder (Rust get_reminder_settings)
         </h4>
-        <DebugRow label="Interval (mins)" value={info.intervalMins} />
-        <DebugRow label="Duration (secs)" value={info.durationSecs} />
+        <DebugRow label="间隔（分钟）" value={info.intervalMins} />
+        <DebugRow label="时长（秒）" value={info.durationSecs} />
         <DebugRow label="背景样式" value={info.backgroundStyle} />
         <DebugRow label="提醒文案" value={info.reminderText} />
       </div>

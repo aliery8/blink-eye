@@ -26,15 +26,15 @@ const remindScheduleData: RemindSchedule = {
     },
     {
       day: 2,
-      remindMsg: "Let's circle back in 48 hours",
+      remindMsg: "48 小时后再聊",
     },
     {
       day: 3,
-      remindMsg: "Park this for 3 days, I'll ping you then",
+      remindMsg: "先放 3 天，到时我提醒你",
     },
     {
       day: 4,
-      remindMsg: "Give me a week to think about it",
+      remindMsg: "给我一周时间考虑",
     },
     {
       // Assuming today is a weekday, this pushes it to next week
@@ -43,11 +43,11 @@ const remindScheduleData: RemindSchedule = {
     },
     {
       day: 6,
-      remindMsg: "Let's revisit this in 6 days",
+      remindMsg: "6 天后再看这件事",
     },
     {
       day: 7,
-      remindMsg: "I need some space... see you next week",
+      remindMsg: "我需要点空间……下周见",
     },
   ],
 };

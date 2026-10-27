@@ -33,13 +33,13 @@ export interface BackgroundEntry {
 export const BACKGROUND_REGISTRY: BackgroundEntry[] = [
   { style: "default",               entry: "reminder-default.html",             label: "默认" },
   { style: "aurora",                entry: "reminder-aurora.html",              label: "极光" },
-  { style: "freesprit",             entry: "reminder-freesprit.html",           label: "Free Spirit" },
+  { style: "freesprit",             entry: "reminder-freesprit.html",           label: "自由灵魂" },
   { style: "beamoflife",            entry: "reminder-beamoflife.html",          label: "生命之光" },
-  { style: "particleBackground",    entry: "reminder-particles.html",           label: "Particle Wave" },
-  { style: "starryBackground",      entry: "reminder-starry.html",              label: "Starry Background" },
-  { style: "shootingmeteor",        entry: "reminder-meteor.html",              label: "Shooting Meteor" },
-  { style: "plainGradientAnimation", entry: "reminder-gradient.html",          label: "Gradient Animation" },
-  { style: "canvasShapes",          entry: "reminder-canvas.html",              label: "Bouncy Balls" },
+  { style: "particleBackground",    entry: "reminder-particles.html",           label: "粒子波浪" },
+  { style: "starryBackground",      entry: "reminder-starry.html",              label: "星空背景" },
+  { style: "shootingmeteor",        entry: "reminder-meteor.html",              label: "流星" },
+  { style: "plainGradientAnimation", entry: "reminder-gradient.html",          label: "渐变动画" },
+  { style: "canvasShapes",          entry: "reminder-canvas.html",              label: "弹跳小球" },
 ];
 
 export const DEFAULT_BACKGROUND_ENTRY = "reminder-default.html";

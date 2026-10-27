@@ -46,11 +46,11 @@ const isMac = platform() === "macos";
 const mainNav = [{ title: "概览", url: "/", icon: IoGrid }];
 
 const proNav = [
-  { title: "Reminder Settings", url: "/reminderSettings", icon: IoTimer },
+  { title: "提醒设置", url: "/reminderSettings", icon: IoTimer },
   { title: "使用时长", url: "/usageTime", icon: IoBarChart },
-  { title: "Reminder Themes", url: "/reminderthemes", icon: IoColorPalette },
+  { title: "提醒主题", url: "/reminderthemes", icon: IoColorPalette },
   { title: "多显示器", url: "/multimonitor", icon: PiMonitorFill },
-  { title: "Todo List", url: "/todoList", icon: LucideListTodo },
+  { title: "待办清单", url: "/todoList", icon: LucideListTodo },
   { title: "工作日设置", url: "/workday", icon: IoCalendar },
   { title: "休息屏保", url: "/screenSavers", icon: IoDesktop },
 ];
@@ -58,9 +58,9 @@ const proNav = [
 const systemNav = [
   { title: "设置", url: "/allSettings", icon: IoSettings },
   { title: "主题选择", url: "/themePicker", icon: IoColorWand },
-  { title: "Activate License", url: "/activatelicense", icon: IoKey },
+  { title: "激活许可证", url: "/activatelicense", icon: IoKey },
   {
-    title: "Submit Feedback",
+    title: "提交反馈",
     url: "https://tally.so/r/wo0ZrN",
     icon: IoChatbubble,
     external: true,

@@ -158,7 +158,7 @@ export const UpdateProvider = ({ children }: { children: ReactNode }) => {
         setLatestVersion("");
         await persistUpdateFlag(false);
         if (!silent) {
-          toast.success("No updates found. You're on the latest version.");
+          toast.success("没有发现更新，已是最新版本。");
         }
       }
     } catch (error) {

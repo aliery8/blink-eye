@@ -133,7 +133,7 @@ const AllSettings = () => {
             key: "isRunOnStartUpEnabledByDefault",
             value: "true",
           });
-          toast.success("AutoStart Enabled by Default", {
+          toast.success("默认已开启开机自启", {
             duration: 2000,
             position: "bottom-right",
           });
@@ -151,13 +151,13 @@ const AllSettings = () => {
             ),
           ]);
           if (license.status === "active") {
-            setTrialLine("Premium is active on this device");
+            setTrialLine("本机高级版已激活");
           } else if (trial.is_active) {
             setTrialLine(
               `${trial.days_remaining} ${trial.days_remaining === 1 ? "day" : "days"} left in your free trial`,
             );
           } else {
-            setTrialLine("Free trial ended");
+            setTrialLine("免费试用已结束");
           }
         } catch {
           // Trial/license readout is best-effort; the row stays hidden.
@@ -182,13 +182,13 @@ const AllSettings = () => {
     try {
       if (checked) {
         await enable();
-        toast.success("Enabled Autostart", {
+        toast.success("已开启开机自启", {
           duration: 2000,
           position: "bottom-right",
         });
       } else {
         await disable();
-        toast.success("Disabled Autostart", {
+        toast.success("已关闭开机自启", {
           duration: 2000,
           position: "bottom-right",
         });
@@ -260,7 +260,7 @@ const AllSettings = () => {
       const date = new Date().toISOString().slice(0, 10);
       const destination = await save({
         defaultPath: `blink-eye-backup-${date}.zip`,
-        filters: [{ name: "Blink Eye Backup", extensions: ["zip"] }],
+        filters: [{ name: "Blink Eye 备份", extensions: ["zip"] }],
       });
 
       if (!destination) return;
@@ -290,7 +290,7 @@ const AllSettings = () => {
       setIsImporting(true);
       const source = await open({
         multiple: false,
-        filters: [{ name: "Blink Eye Backup", extensions: ["zip"] }],
+        filters: [{ name: "Blink Eye 备份", extensions: ["zip"] }],
       });
 
       if (!source || Array.isArray(source)) return;
@@ -414,7 +414,7 @@ const AllSettings = () => {
             </SettingIconBadge>
           }
           label="导出数据"
-          description="Save settings, screen time, and todos (license stays on this device)"
+          description="保存设置、屏幕使用时间和待办（许可证保留在本机）"
         >
           <Button
             variant="outline"

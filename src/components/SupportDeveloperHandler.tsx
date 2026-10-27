@@ -17,7 +17,7 @@ const openSupportReminder = async () => {
 
     const webview = new WebviewWindow("support_reminder", {
       url: "/support_reminder",
-      title: "Support Developer - Blink Eye",
+      title: "支持开发者 - Blink Eye",
       transparent: true,
       shadow: false,
       alwaysOnTop: true,

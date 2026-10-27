@@ -54,11 +54,11 @@ type TimeRange =
 
 const timeRanges: { [key in TimeRange]: string } = {
   today: "Today",
-  "7days": "Last 7 Days",
-  "30days": "Last 30 Days",
+  "7days": "近 7 天",
+  "30days": "近 30 天",
   monthly: "Monthly",
-  "365days": "Last 365 Days",
-  allTime: "All Time",
+  "365days": "近 365 天",
+  allTime: "累计",
 };
 
 // Month selector component
@@ -168,11 +168,11 @@ export default function UsageTimeChart() {
 
   const chartConfig: ChartConfig = {
     timeWithin: {
-      label: "Within 8 Hours",
+      label: "8 小时内",
       color: "#22c55e",
     },
     timeExceeds: {
-      label: "Exceeds 8 Hours",
+      label: "超过 8 小时",
       color: "#FE4C55",
     },
   };
@@ -367,7 +367,7 @@ export default function UsageTimeChart() {
                 <ChartLegend content={<ChartLegendContent />} />
                 <Bar
                   dataKey="totalTime"
-                  name="Screen On Time"
+                  name="屏幕开启时长"
                   radius={[8, 8, 0, 0]}
                 >
                   {processedData.map((entry) => (
