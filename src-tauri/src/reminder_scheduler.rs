@@ -232,6 +232,30 @@ impl ReminderScheduler {
         }).await;
     }
 
+    /// Cancels the break the pre-alert pill announced and restarts the interval.
+    ///
+    /// Called when the user dismisses the pre-alert window themselves ("X" on the
+    /// pill). Strict mode ignores it so the break still happens.
+    pub async fn cancel_pending_break(&self, app_handle: &AppHandle) {
+        close_before_alert(app_handle);
+
+        let interval = {
+            let mut state = self.state.lock().await;
+            if state.settings.is_strict_mode {
+                return;
+            }
+            state.seconds_since_last_break = 0;
+            state.is_on_break = false;
+            state.settings.interval_secs
+        };
+
+        self.send_tray_update(TrayUpdate {
+            remaining_secs: interval,
+            is_on_break: false,
+        })
+        .await;
+    }
+
     /// Force-refreshes settings and immediately starts a break (used for debug/testing).
     pub async fn show_now(&self, app_handle: &AppHandle) -> Result<(), String> {
         self.refresh_settings().await?;
@@ -1141,6 +1165,21 @@ pub async fn skip_reminder(
             crate::premium_nudge::handle_post_break_trigger(handle, trigger).await;
         });
     }
+    Ok(())
+}
+
+/// Dismisses the pre-alert pill and cancels the break it announced.
+///
+/// The break interval restarts from zero; strict mode keeps the break.
+///
+/// # Returns
+/// `()` on success, or error string on failure.
+#[tauri::command]
+pub async fn dismiss_before_alert(
+    app_handle: AppHandle,
+    scheduler: tauri::State<'_, Arc<ReminderScheduler>>,
+) -> Result<(), String> {
+    scheduler.cancel_pending_break(&app_handle).await;
     Ok(())
 }
 

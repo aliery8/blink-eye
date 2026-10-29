@@ -50,7 +50,7 @@ type ReminderSettingsState = {
 };
 
 function formatSnoozeLimit(value: number) {
-  return value === 0 ? "Unlimited" : String(value);
+  return value === 0 ? "不限" : String(value);
 }
 
 function SettingIconBadge({
@@ -497,7 +497,7 @@ const ReminderSettings = () => {
               </SettingIconBadge>
             }
             label="单次休息稍后提醒次数"
-            description="Skip clicks allowed until you restart the app (0 = unlimited)"
+            description="从应用启动到重启前允许跳过的次数（0 = 不限）"
           >
             <Select
               value={String(snoozesPerSession)}
@@ -524,7 +524,7 @@ const ReminderSettings = () => {
               </SettingIconBadge>
             }
             label="每日稍后提醒次数"
-            description="Skip clicks allowed per calendar day (0 = unlimited)"
+            description="每个自然日允许跳过的次数（0 = 不限）"
           >
             <Select
               value={String(snoozesPerDay)}

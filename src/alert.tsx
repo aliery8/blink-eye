@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { XIcon } from "lucide-react";
 import { getCurrentWebviewWindow } from "@tauri-apps/api/webviewWindow";
+import { invoke } from "@tauri-apps/api/core";
 import { Ticker } from "@tombcato/smart-ticker";
 import "@tombcato/smart-ticker/style.css";
 import logo from "./assets/newIcon.png";
@@ -35,6 +36,13 @@ const Alert = () => {
   }, []);
 
   const handleClose = async () => {
+    try {
+      // 用户主动叉掉小窗：取消这一次即将开始的全屏提醒，并重新开始计时。
+      // 倒计时自动关闭走的是 window.close()，不会取消提醒。
+      await invoke("dismiss_before_alert");
+    } catch (error) {
+      console.error("[Alert] dismiss_before_alert failed:", error);
+    }
     await window.close();
   };
 

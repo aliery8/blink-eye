@@ -279,6 +279,7 @@ pub fn run() {
             greet,
             check_minimized_argument,
             reminder_scheduler::skip_reminder,
+            reminder_scheduler::dismiss_before_alert,
             reminder_scheduler::refresh_reminder_scheduler_settings,
             reminder_scheduler::show_reminder_now,
             reminder_scheduler::get_next_reminder_info,
